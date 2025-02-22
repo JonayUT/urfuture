@@ -96,10 +96,7 @@ body {
     padding: 5px;
     background: #c7b9cf;
     backdrop-filter: blur (8px);
-    border-radius: 20px;
-    
-    
-    
+    border-radius: 20px;  
 }
 
 .navert li {
@@ -118,6 +115,7 @@ body {
     transition: none;
 }
 
+
 /* Cambio de color al pasar el cursor */
 .navert li a:hover {
     background: #280a39;
@@ -126,10 +124,39 @@ body {
 }
 
 /* Mostrar menú al pasar el cursor */
+
+.dropdown {
+    position: relative;
+}
+
 .dropdown:hover .navert {
     display: block;
     transition: none;
     
+}
+
+/* Submenú dentro de "Valores" */
+.submenu {
+    position: relative;
+}
+
+.subnav {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    background: none;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    background: #c7b9cf;
+    backdrop-filter: blur (8px);
+    border-radius: 20px;  
+}
+
+
+.submenu:hover .subnav {
+    display: block;
 }
 
 /* Sidebar del menú hamburguesa */

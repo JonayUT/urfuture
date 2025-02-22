@@ -1,19 +1,15 @@
 @extends('layouts.app')
-
 @section('title', 'Valores')
-
 @section('content')
-
     <!-- Breadcrumbs -->
     <div class="container-fluid">
-            <ol class="breadcrumb">            
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/nosotros">Nosotros</a></li>
-                    <li class="breadcrumb-item">Valores</li>
-            </ol>
-        </div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/nosotros">Nosotros</a></li>
+            <li class="breadcrumb-item">Valores</li>
+        </ol>
+    </div>
    <!-- --------- -->
-
    <h1 class="neon-text">VALORES</h1>
    <main>
         <section class="contenido">
@@ -27,5 +23,4 @@
             <img src="images/eso9.jpg" alt="Imagen Valores">
         </div>
     </main>
-
    @endsection
