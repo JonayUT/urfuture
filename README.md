@@ -1,66 +1,141 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📘 Proyecto Educativo con Laravel y MongoDB
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+¡Bienvenido al repositorio de nuestro proyecto educativo! 🚀 Este proyecto está diseñado para aprender y aplicar buenas prácticas en el desarrollo web con Laravel y MongoDB. Implementamos cifrado de datos, gestión de sesiones y código limpio. Además, utilizamos Bootstrap para el diseño.
 
-## About Laravel
+## 📌 Requisitos Previos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Git](https://git-scm.com/) → Herramienta de control de versiones que nos permite clonar el repositorio y manejar cambios de código.
+- [PHP](https://www.php.net/) → Lenguaje de programación necesario para ejecutar Laravel.
+- [Composer](https://getcomposer.org/) → Administrador de dependencias para proyectos PHP, indispensable para instalar Laravel y sus paquetes.
+- [MongoDB](https://www.mongodb.com/) → Base de datos NoSQL que usaremos para almacenar la información del proyecto.
+- [Node.js](https://nodejs.org/) → Entorno de ejecución de JavaScript necesario para compilar y gestionar los assets del frontend.
+- [Laravel](https://laravel.com/) → Framework PHP que facilita el desarrollo de aplicaciones web con buenas prácticas.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Clonación del Proyecto
 
-## Learning Laravel
+Para obtener una copia local del proyecto, sigue estos pasos:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Abre una terminal o consola de comandos.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Ubícate en la carpeta donde deseas clonar el proyecto usando `cd nombre-de-la-carpeta`.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Ejecuta el siguiente comando para descargar el código fuente:
 
-## Laravel Sponsors
+   ```sh
+   git clone https://github.com/usuario/repositorio.git
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. Ingresa a la carpeta del proyecto con:
 
-### Premium Partners
+   ```sh
+   cd nombre-del-proyecto
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 📦 Instalación de Dependencias
 
-## Contributing
+Para que el proyecto funcione correctamente, debemos instalar todas sus dependencias antes de configurarlo.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1️⃣ Instalar dependencias de PHP con Composer
 
-## Code of Conduct
+Laravel utiliza múltiples paquetes para su funcionamiento. Para instalarlos, ejecuta dentro de la carpeta del proyecto:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```sh
+composer install
+```
 
-## Security Vulnerabilities
+Esto descargará todas las bibliotecas necesarias para el backend.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2️⃣ Instalar dependencias de Node.js (Incluye Bootstrap)
 
-## License
+El frontend del proyecto requiere paquetes como Bootstrap y herramientas de compilación. Para instalarlos, ejecuta:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```sh
+npm install
+```
+
+Este comando instalará todas las dependencias necesarias para manejar los estilos y scripts de la interfaz gráfica.
+
+### 3️⃣ Compilar los assets de frontend
+
+Bootstrap y otros estilos necesitan ser procesados antes de ser utilizados. Para ello, usa el siguiente comando:
+
+```sh
+npm run dev
+```
+
+Este comando compilará los estilos y scripts asegurando que la interfaz se vea correctamente.
+
+## 🔑 Configuración de la Aplicación
+
+1. Laravel usa un archivo de entorno para almacenar configuraciones. Copia el archivo de ejemplo con:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+2. Genera una nueva clave de aplicación para la seguridad del framework:
+
+   ```sh
+   php artisan key:generate
+   ```
+
+3. Configura la conexión con MongoDB editando el archivo `.env` con los siguientes valores:
+
+   ```env
+   DB_CONNECTION=mongodb
+   DB_HOST=cluster0.urfurtunedb.com
+   DB_PORT=27017
+   DB_DATABASE=nombre_de_tu_base
+   DB_USERNAME=tu_usuario
+   DB_PASSWORD=tu_contraseña
+   ```
+
+4. Guarda los cambios y cierra el archivo. Esto permitirá que Laravel se conecte a la base de datos.
+
+## ⚡ Ejecutando el Proyecto
+
+Para iniciar la aplicación y verificar que todo funciona correctamente, sigue estos pasos:
+
+1. Levanta el servidor de Laravel ejecutando:
+
+   ```sh
+   php artisan serve
+   ```
+
+2. Abre tu navegador y accede a la URL que se muestra en la terminal, normalmente:
+
+   ```
+   http://127.0.0.1:8000
+   ```
+
+Si ves la página de bienvenida de Laravel, ¡todo está listo para comenzar! 🎉
+
+## 💡 Contribución
+
+Si deseas contribuir al desarrollo del proyecto, sigue estos pasos para asegurarte de que tus cambios se integren correctamente:
+
+1. Haz un fork del repositorio en GitHub para crear tu propia copia.
+2. Crea una nueva rama para trabajar en tu mejora o corrección de errores:
+   ```sh
+   git checkout -b mi-rama
+   ```
+3. Realiza los cambios en tu código y guarda los archivos.
+4. Confirma los cambios con un mensaje descriptivo:
+   ```sh
+   git commit -m "Descripción de los cambios"
+   ```
+5. Sube tus cambios a tu repositorio en GitHub:
+   ```sh
+   git push origin mi-rama
+   ```
+6. Crea un pull request para solicitar que tus cambios sean revisados e integrados en el repositorio principal.
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT. ¡Siéntete libre de usarlo, modificarlo y compartirlo con la comunidad! ✨
+
+---
+
+⚡ *Desarrollado con pasión y buenas prácticas.* 💙
