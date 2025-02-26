@@ -10,7 +10,7 @@
 
    <h1 class="neon-text">THE EYE IN UR HAND</h1>
    <main>
-        <section class="productos">
+        <section class="productos-i">
             <div class="producto">
                 <img src="images/producto5.jpg" alt="Producto 5">
                 <h2>The Eye in Ur Hand</h2>
