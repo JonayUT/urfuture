@@ -35,6 +35,15 @@ body {
     text-decoration: none;
     font-weight: 700;
 }
+/*Logo login*/
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
 
 /* Menú hamburguesa */
 .menu-toggle {
