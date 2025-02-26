@@ -10,7 +10,7 @@
 
    <h1 class="neon-text">LIBROS</h1>
    <main>
-        <section class="productos">
+        <section class="productos-i">
             <div class="producto">
                 <img src="images/producto3.jpg" alt="Producto 3">
                 <h2>Jovenes Hechiceras / Pasta Dura</h2>
