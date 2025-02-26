@@ -32,6 +32,65 @@ Breadcrumbs::for('productos', function (BreadcrumbTrail $trail) {
     $trail->push('Productos', route('productos'));
 });
 
+// Libros
+Breadcrumbs::for('libros', function (BreadcrumbTrail $trail) {
+    $trail->parent('productos');
+    $trail->push('Libros', route('libros'));
+});
+
+    //Jovenes Hechiceras
+
+    Breadcrumbs::for('hechiceras', function (BreadcrumbTrail $trail) {
+        $trail->parent('libros');
+        $trail->push('Jovenes Hechiceras', route('hechiceras'));
+    });
+
+    //Tarot Guia Personal
+
+    Breadcrumbs::for('tarot', function (BreadcrumbTrail $trail) {
+        $trail->parent('libros');
+        $trail->push('Tarot Guia Personal', route('tarot'));
+    });
+
+    //The eye in ur hand
+
+    Breadcrumbs::for('eye', function (BreadcrumbTrail $trail) {
+        $trail->parent('libros');
+        $trail->push('The eye in ur hand', route('eye'));
+    });
+
+// Aromaticos
+
+Breadcrumbs::for('aromaticos', function (BreadcrumbTrail $trail) {
+    $trail->parent('productos');
+    $trail->push('Aromaticos', route('aromaticos'));
+});
+
+    //Velas Pacificadoras
+    Breadcrumbs::for('velas', function (BreadcrumbTrail $trail) {
+        $trail->parent('aromaticos');
+        $trail->push('Velas Pacificadoras', route('velas'));
+    });
+
+    //Perlas Aromaticas
+    Breadcrumbs::for('perlas', function (BreadcrumbTrail $trail) {
+        $trail->parent('aromaticos');
+        $trail->push('Perlas Aromaticas', route('perlas'));
+    });
+
+// Otros
+
+Breadcrumbs::for('otros', function (BreadcrumbTrail $trail) {
+    $trail->parent('productos');
+    $trail->push('Otros', route('otros'));
+});
+
+    // Agua de Afrodita
+    Breadcrumbs::for('agua', function (BreadcrumbTrail $trail) {
+        $trail->parent('otros');
+        $trail->push('Agua de Afrodita', route('agua'));
+    });
+
 // Contacto
 Breadcrumbs::for('contacto', function (BreadcrumbTrail $trail) {
     $trail->parent('inicio');

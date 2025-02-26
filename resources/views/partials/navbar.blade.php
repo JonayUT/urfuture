@@ -19,24 +19,24 @@
             <a href="{{ route('productos') }}">Productos</a>
             <ul class="navert">
                 <li class="submenu">
-                    <a href="{{ route('vision') }}">Libros</a>
+                    <a href="{{ route('libros') }}">Libros</a>
                     <ul class="subnav">
-                        <li><a href="#">Jovenes Hechiceras</a></li>
-                        <li><a href="#">Tarot Guia Personal</a></li>
-                        <li><a href="#">The Eye in Ur Hand</a></li>
+                        <li><a href="{{ route('hechiceras') }}">Jovenes Hechiceras</a></li>
+                        <li><a href="{{ route('tarot') }}">Tarot Guia Personal</a></li>
+                        <li><a href="{{ route('eye') }}">The Eye in Ur Hand</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="{{ route('mision') }}">Aromaticos</a>
+                    <a href="{{ route('aromaticos') }}">Aromaticos</a>
                     <ul class="subnav">
-                        <li><a href="#">Velas Pacificadoras</a></li>
-                        <li><a href="#">Perlas Aromaticas</a></li>
+                        <li><a href="{{ route('velas') }}">Velas Pacificadoras</a></li>
+                        <li><a href="{{ route('perlas') }}">Perlas Aromaticas</a></li>
                     </ul>
                 </li>               
                 <li class="submenu">
-                    <a href="{{ route('valores') }}">Otros</a>
+                    <a href="{{ route('otros') }}">Otros</a>
                     <ul class="subnav">
-                        <li><a href="#">Agua de Afrodita</a></li>
+                        <li><a href="{{ route('agua') }}">Agua de Afrodita</a></li>
                     </ul>
                 </li>
             </ul>
