@@ -47,6 +47,22 @@
         </div>
         <a href="{{ route('testimonios') }}">Testimonios</a>
         <a href="{{ route('descubre') }}">Descubre</a>
+        <!-- Botón de perfil -->
+<div class="dropdown">
+    <a href="#">
+        <img src="{{ asset('images/default-profile.png') }}" alt="Perfil" class="profile-icon">
+    </a>
+    <ul class="navert">
+        @auth
+            <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
+            <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+        @else
+            <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+            <li><a href="{{ route('register') }}">Registrarse</a></li>
+        @endauth
+    </ul>
+</div>
+
     </nav>
 </header>
 <!-- Menú lateral hamburguesa -->
