@@ -341,6 +341,7 @@ h1 {
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    text-align: justify;
 }
 .mision p {
     font-size: 1.2em;
@@ -364,6 +365,7 @@ h1 {
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    text-align: justify;
 }
 
 .contenido p {
