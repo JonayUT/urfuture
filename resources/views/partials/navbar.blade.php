@@ -7,13 +7,17 @@
 
     <!-- Menú de navegación principal -->
     <nav class="navbar">
-        
+        <div class="search-box">
+            <input type="text" class="form-control" id="searchInput" placeholder="Buscar..." aria-label="Buscar">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
         <div class="dropdown">
             <a href="{{ route('nosotros') }}">Nosotros</a>
             <ul class="navert">
                 <li><a href="{{ route('vision') }}">Visión</a></li>
                 <li><a href="{{ route('mision') }}">Misión</a></li>
-                <li><a href="{{ route('valores') }}">Valores</a></li> 
+                <li><a href="{{ route('valores') }}">Valores</a></li>
         </div>
         <div class="dropdown">
             <a href="{{ route('productos') }}">Productos</a>
@@ -32,7 +36,7 @@
                         <li><a href="{{ route('velas') }}">Velas Pacificadoras</a></li>
                         <li><a href="{{ route('perlas') }}">Perlas Aromaticas</a></li>
                     </ul>
-                </li>               
+                </li>
                 <li class="submenu">
                     <a href="{{ route('otros') }}">Otros</a>
                     <ul class="subnav">
@@ -40,7 +44,7 @@
                     </ul>
                 </li>
             </ul>
-        </div>       
+        </div>
         <a href="{{ route('testimonios') }}">Testimonios</a>
         <a href="{{ route('descubre') }}">Descubre</a>
     </nav>

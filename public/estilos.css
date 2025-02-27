@@ -75,7 +75,7 @@ body {
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;
-    
+
      }
      .navbar a::before {
         content: '';
@@ -87,10 +87,45 @@ body {
         background: #280a39;
         transition: 1s;
      }
-    
+
      .navbar a:hover::before{
         width: 100%;
      }
+
+     .search-box {
+        position: relative;
+        width: 90%;
+        max-width: 100px;
+        margin: 0 auto;
+        background-color: #D8B7DD; /* Morado claro */
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-box .form-control {
+        border: none;
+        border-radius: 25px;
+        padding-left: 40px;
+        background-color: transparent;
+        color: #F9E79F; /* Amarillo claro */
+        font-family: 'Garamond', serif; /* Fuente elegante */
+    }
+
+    .search-box .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #F9E79F; /* Amarillo claro */
+        font-size: 18px;
+    }
+
+    .search-box .form-control:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+
 
 
 /* Estilos del menú desplegable */
@@ -105,7 +140,7 @@ body {
     padding: 5px;
     background: #c7b9cf;
     backdrop-filter: blur (8px);
-    border-radius: 20px;  
+    border-radius: 20px;
 }
 
 .navert li {
@@ -141,7 +176,7 @@ body {
 .dropdown:hover .navert {
     display: block;
     transition: none;
-    
+
 }
 
 /* Submenú dentro de "Valores" */
@@ -160,7 +195,7 @@ body {
     padding: 0;
     background: #c7b9cf;
     backdrop-filter: blur (8px);
-    border-radius: 20px;  
+    border-radius: 20px;
 }
 
 
@@ -190,7 +225,7 @@ body {
     padding: 15px;
     display: block;
     text-align: center;
-   
+
 }
 
 .sidebar a:hover {
@@ -226,7 +261,7 @@ body {
     color: white;
     font-size: 18px;
 }
- 
+
 h1 {
   text-align: center;
   padding: 50px;
@@ -295,7 +330,7 @@ h1 {
     padding: 20px;
 }
 
-.productos-i { 
+.productos-i {
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
     padding: 20px;
     text-align: center;
@@ -307,13 +342,13 @@ h1 {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
-    
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .producto img {
-    width: 100%;             
-    height: 100%;      
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
