@@ -24,14 +24,36 @@ Para obtener una copia local del proyecto, sigue estos pasos:
 3. Ejecuta el siguiente comando para descargar el código fuente:
 
    ```sh
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/JonayUT/urfuture.git
    ```
 
 4. Ingresa a la carpeta del proyecto con:
 
    ```sh
-   cd nombre-del-proyecto
+   cd laragon/www/nombre-del-proyecto
    ```
+
+## 🔧 Intalacion de complementos
+
+El proyecto necesita que se instale el archivo php_mongodb.dll el cual se encuentra en la siguiente pagina:
+
+- [Pecl_MongoDb](https://pecl.php.net/package/mongodb/1.20.1/windows) → Se descarga la version con php compatible del sistema actual en su version Thread Safe (TS).
+
+Este archivo se descomprimira en la siguiente direccion ```php/php-version/ext```
+
+Despues se modifica el archivo php.ini
+Puedes agregar la línea en la sección donde se cargan las extensiones dinámicas, que normalmente está cerca de la parte final del archivo, justo después de un comentario como ```; Dynamic Extensions``` o ```; Extensions```. Si no encuentras una sección específica, lo ideal es buscar las líneas que empiezan con ```extension``` y agregarla en una línea separada
+
+```
+; Habilitar la extensión de MongoDB
+extension = php_mongodb.dll
+```
+
+Despues de esto tendras que reiniciar Laragon y ejecutar la siguiente linea
+```sh
+composer show -p ext-mongodb
+```
+El resultado debera de arrojar ```true```, de lo contrario se tendra que probar con una version compatible de el elemento .dll
 
 ## 📦 Instalación de Dependencias
 
@@ -85,7 +107,7 @@ Este comando compilará los estilos y scripts asegurando que la interfaz se vea 
 
    ```env
    DB_CONNECTION=mongodb
-   DB_HOST=cluster0.urfurtunedb.com
+   DB_HOST=cluster.wqqvq.mongodb.net
    DB_PORT=27017
    DB_DATABASE=nombre_de_tu_base
    DB_USERNAME=tu_usuario
@@ -110,27 +132,44 @@ Para iniciar la aplicación y verificar que todo funciona correctamente, sigue e
    http://127.0.0.1:8000
    ```
 
-Si ves la página de bienvenida de Laravel, ¡todo está listo para comenzar! 🎉
+Si ves la página Principal del proyecto, ¡todo está listo para comenzar! 🎉
 
-## 💡 Contribución
 
-Si deseas contribuir al desarrollo del proyecto, sigue estos pasos para asegurarte de que tus cambios se integren correctamente:
+## 🛠 Hoja de Comandos de Git
 
-1. Haz un fork del repositorio en GitHub para crear tu propia copia.
-2. Crea una nueva rama para trabajar en tu mejora o corrección de errores:
-   ```sh
-   git checkout -b mi-rama
-   ```
-3. Realiza los cambios en tu código y guarda los archivos.
-4. Confirma los cambios con un mensaje descriptivo:
-   ```sh
-   git commit -m "Descripción de los cambios"
-   ```
-5. Sube tus cambios a tu repositorio en GitHub:
-   ```sh
-   git push origin mi-rama
-   ```
-6. Crea un pull request para solicitar que tus cambios sean revisados e integrados en el repositorio principal.
+- **Crear y cambiar a una nueva rama**
+  ```sh
+  git checkout -b nombre-rama
+  ```
+- **Agregar archivos al commit**
+  ```sh
+  git add .
+  ```
+  * En caso de querer subir un archivo en epecifico, se ecribe la ruta y nombre en lugar del "."
+- **Hacer un commit con mensaje**
+  ```sh
+  git commit -m "Descripción de los cambios"
+  ```
+- **Subir cambios al repositorio remoto**
+  ```sh
+  git push origin nombre-rama
+  ```
+- **Actualizar el código local con la última versión del remoto**
+  ```sh
+  git pull origin main
+  ```
+- **Fusionar cambios de una rama a otra**
+  ```sh
+  git merge nombre-rama
+  ```
+- **Eliminar una rama local**
+  ```sh
+  git branch -d nombre-rama
+  ```
+- **Eliminar una rama remota**
+  ```sh
+  git push origin --delete nombre-rama
+  ```
 
 ## 📄 Licencia
 
