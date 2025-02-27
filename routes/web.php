@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,60 @@ Route::get('/', function () {
 Route::get('/productos', function () {
     return view('productos');
 })->name('productos');
+
+// Ruta Libros
+
+Route::get('/libros', function () {
+    return view('/Productos/libros');
+})->name('libros');
+
+    //Ruta Jovenes Hechiceras
+
+    Route::get('/hechiceras', function () {
+        return view('/Productos/libros/librohechiceras');
+    })->name('hechiceras');
+
+    //Ruta Tarot Guia Personal
+
+    Route::get('/tarot', function () {
+        return view('/Productos/libros/librotarot');
+    })->name('tarot');
+
+    //Ruta The Eye in Ur Hand
+
+    Route::get('/eye', function () {
+        return view('/Productos/libros/libroeye');
+    })->name('eye');
+
+//Ruta Aromaticos
+
+Route::get('/aromaticos', function () {
+    return view('/Productos/aromaticos');
+})->name('aromaticos');
+
+    // Ruta Velas Pacificadoras
+    
+    Route::get('/velas', function () {
+        return view('/Productos/aromaticos/aromavelas');
+    })->name('velas');
+
+    //Ruta Perlas Aromaticas
+
+    Route::get('/perlas', function () {
+        return view('/Productos/aromaticos/aromaperlas');
+    })->name('perlas');
+
+//Ruta Otros
+
+Route::get('/otros', function () {
+    return view('/Productos/otros');
+})->name('otros');
+
+    //Agua de Afrodita
+
+    Route::get('/agua', function () {
+        return view('/Productos/otros/otrosagua');
+    })->name('agua');
 
 // Ruta Misión
 Route::get('/nosotros/mision', function () {
@@ -71,3 +127,14 @@ Route::get('/compras', function () {
 })->name('compras');
 
 // -----------------------------------------
+
+// Ruta Login
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+// Ruta Register
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+// Ruta Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
