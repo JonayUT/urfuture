@@ -46,14 +46,55 @@ body {
 
 
 /* Menú hamburguesa */
+/* Estilos del menú hamburguesa */
 .menu-toggle {
-    font-size: 32px;
     cursor: pointer;
-    color: #280a39;
+    font-size: 24px;
+    padding: 10px;
     position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 10px;
+    top: 10px;
+    z-index: 11;
+}
+
+/* Sidebar (Menú lateral) */
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: white;
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    z-index: 12;
+}
+
+/* Mostrar sidebar cuando se activa la clase */
+.sidebar.active {
+    left: 0;
+}
+
+/* Fondo difuminado */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Activar blur cuando el menú está abierto */
+.overlay.active {
+    opacity: 70;
+    visibility: visible;
 }
 
 /* Navbar principal */
@@ -94,36 +135,50 @@ body {
 
      .search-box {
         position: relative;
-        width: 90%;
-        max-width: 100px;
+        width: 200px; /* Reducido para que no sea tan dominante */
+        height: 35px; /* Más compacto */
         margin: 0 auto;
-        background-color: #D8B7DD; /* Morado claro */
-        border-radius: 25px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #D8B7DD, #B387C3); /* Fondo con transparencia */
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .search-box:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .search-box .form-control {
         border: none;
-        border-radius: 25px;
-        padding-left: 40px;
+        border-radius: 30px;
+        padding: 10px 15px 10px 40px;
         background-color: transparent;
-        color: #F9E79F; /* Amarillo claro */
-        font-family: 'Garamond', serif; /* Fuente elegante */
+        color: #333;
+        font-family: 'Garamond', serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+        width: 100%;
     }
 
     .search-box .search-icon {
         position: absolute;
-        top: 50%;
         left: 10px;
-        transform: translateY(-50%);
-        color: #F9E79F; /* Amarillo claro */
-        font-size: 18px;
+        color: #666;
+        font-size: 14px; /* Más pequeño para armonizar */
+    }
+
+    .search-box .form-control::placeholder {
+        color: rgba(0, 0, 0, 0.5);
     }
 
     .search-box .form-control:focus {
         outline: none;
-        box-shadow: none;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
     }
+
 
 
 
