@@ -126,6 +126,8 @@ Route::get('/compras', function () {
     return view('compras');
 })->name('compras');
 
+
+
 // -----------------------------------------
 
 // Ruta Login
@@ -138,3 +140,11 @@ Route::post('/register', [AuthController::class, 'register']);
 
 // Ruta Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+// -------------------------------
+
+use App\Http\Controllers\MenuController;
+
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+
