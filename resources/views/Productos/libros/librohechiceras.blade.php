@@ -12,7 +12,7 @@
    <main>
         <section class="productos-i">
             <div class="producto">
-                <img src="images/producto3.jpg" alt="Producto 3">
+                <img src="../../images/producto3.jpg" alt="Producto 3">
                 <h2>Jovenes Hechiceras / Pasta Dura</h2>
                 <p>Convierte en toda una brujita.</p>
                 <span>$300</span>

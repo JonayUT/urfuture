@@ -12,7 +12,7 @@
    <main>
         <section class="productos-i">
             <div class="producto">
-                <img src="images/producto5.jpg" alt="Producto 5">
+                <img src="../../images/producto5.jpg" alt="Producto 5">
                 <h2>The Eye in Ur Hand</h2>
                 <p>Tarot interactivo, incluye tapete digital.</p>
                 <span>$500</span>

@@ -9,6 +9,8 @@
    {{ Breadcrumbs::render('menu') }}
    <!-- --------- -->
 
+   <h1 class="neon-text">MAPA DE SITIO</h1>
+
    <div class="menu-container-ms">
         <ul class="menu-ms">
             @if(isset($menuItems) && is_array($menuItems))

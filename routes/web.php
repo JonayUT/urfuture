@@ -27,55 +27,55 @@ Route::get('/productos', function () {
 
 // Ruta Libros
 
-Route::get('/libros', function () {
+Route::get('/productos/libros', function () {
     return view('/Productos/libros');
 })->name('libros');
 
     //Ruta Jovenes Hechiceras
 
-    Route::get('/hechiceras', function () {
+    Route::get('/productos/libros/hechiceras', function () {
         return view('/Productos/libros/librohechiceras');
     })->name('hechiceras');
 
     //Ruta Tarot Guia Personal
 
-    Route::get('/tarot', function () {
+    Route::get('/productos/libros/tarot', function () {
         return view('/Productos/libros/librotarot');
     })->name('tarot');
 
     //Ruta The Eye in Ur Hand
 
-    Route::get('/eye', function () {
+    Route::get('/productos/libros/eye', function () {
         return view('/Productos/libros/libroeye');
     })->name('eye');
 
 //Ruta Aromaticos
 
-Route::get('/aromaticos', function () {
+Route::get('/productos/aromaticos', function () {
     return view('/Productos/aromaticos');
 })->name('aromaticos');
 
     // Ruta Velas Pacificadoras
     
-    Route::get('/velas', function () {
+    Route::get('/productos/aromaticos/velas', function () {
         return view('/Productos/aromaticos/aromavelas');
     })->name('velas');
 
     //Ruta Perlas Aromaticas
 
-    Route::get('/perlas', function () {
+    Route::get('/productos/aromaticos/perlas', function () {
         return view('/Productos/aromaticos/aromaperlas');
     })->name('perlas');
 
 //Ruta Otros
 
-Route::get('/otros', function () {
+Route::get('/productos/otros', function () {
     return view('/Productos/otros');
 })->name('otros');
 
     //Agua de Afrodita
 
-    Route::get('/agua', function () {
+    Route::get('/productos/otros/agua', function () {
         return view('/Productos/otros/otrosagua');
     })->name('agua');
 

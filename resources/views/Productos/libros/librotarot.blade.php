@@ -12,7 +12,7 @@
    <main>
         <section class="productos-i">
             <div class="producto">
-                <img src="images/producto4.jpg" alt="Producto 4">
+                <img src="../../images/producto4.jpg" alt="Producto 4">
                 <h2>Tarot Guia Personal / Pasta Dura</h2>
                 <p>Aprende a leer el tarot.</p>
                 <span>$400</span>
