@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Inicio",
+        "url": "/"
+    },
+
+    {
+        "name": "Nosotros",
+        "url": "/nosotros",
+        "subcategories": [
+            { "name": "Misión", "url": "/nosotros/mision" },
+            { "name": "Visión", "url": "/nosotros/vision" },
+            { "name": "Valores", "url": "/nosotros/valores" }
+        ]
+    },
+
+    {
+        "name": "Productos",
+        "url": "/productos",
+        "subcategories": [
+            { "name": "Libros", "url": "/libros" },
+            { "name": "Aromaticos", "url": "/aromaticos" },
+            { "name": "Otros", "url": "otros" }
+        ]
+    },
+
+    {
+        "name": "Testimonios",
+        "url": "/testimonios"
+    },
+
+    {
+        "name": "Contacto",
+        "url": "/contacto"
+    }
+]
