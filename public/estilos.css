@@ -14,7 +14,8 @@ body {
     background-position: center;
 }
 
-/* Header */
+/*-------------------- HEADER  -----------------------*/
+
 .header {
     position: fixed;
     top: 0;
@@ -44,8 +45,8 @@ body {
     cursor: pointer;
 }
 
+/*-------------------- MENU HAMBURGUESA  -----------------------*/
 
-/* Menú hamburguesa */
 /* Estilos del menú hamburguesa */
 .menu-toggle {
     cursor: pointer;
@@ -294,7 +295,8 @@ body {
     left: 0;
 }
 
-/* Footer Navigation */
+/*-------------------- FOOTER  -----------------------*/
+
 .footernav {
     position: fixed;
     bottom: 0;
@@ -322,7 +324,7 @@ h1 {
   padding: 50px;
 }
 
- /*carrusel de fotos*/
+/*--------------------  CARRUSEL DE FOTOS  -----------------------*/
 
  /* Contenedor del carrusel */
 /* Contenedor principal centrado */
@@ -367,7 +369,8 @@ h1 {
     object-fit: cover;
 }
 
-/* Ajustes para pantallas pequeñas */
+/*-------------------- RESPONSIVIDAD  -----------------------*/
+
 @media (max-width: 991px) {
     .swiper {
         width: 90%;
@@ -377,7 +380,8 @@ h1 {
     }
 }
 
-/*productos*/
+/*-------------------- PRODUCTOS  -----------------------*/
+
 .productos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -423,10 +427,11 @@ h1 {
     color: #e44d26;
 }
 
-/*MISION*/
+/*-------------------- MISION  -----------------------*/
+
 .mision {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 20px;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -446,7 +451,7 @@ h1 {
     border-radius: 10px;
 }
 
-/*VISION VALORES*/
+/*-------------------- VISION Y VALORES  -----------------------*/
 
 .contenido {
     max-width: 800px;
@@ -476,7 +481,7 @@ h1 {
     border-radius: 10px;
 }
 
-/*Formulario Contactanos*/
+/*-------------------- FORMULARIOS  -----------------------*/
 /* Contenedor principal del formulario */
 .contact-card {
     width: 90%;
@@ -506,6 +511,7 @@ h1 {
 }
 
 /* Formulario */
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -582,8 +588,8 @@ h1 {
     box-shadow: 0 2px 8px rgba(122, 95, 166, 0.3);
 }
 
+/*-------------------- BREADCRUMBS  -----------------------*/
 
-/* Estilo general del breadcrumb */
 .breadcrumb {
     background-color: white; /* Fondo transparente para un look más limpio */
     padding: 5px;
@@ -618,7 +624,7 @@ h1 {
     font-weight: bold; /* Negrita para destacar */
 }
 
-/* MAPA DE SITIO -------------------------------------------*/
+/*-------------------- MAPA DE SITIO  -----------------------*/
 
 .menu-container-ms {
     width: 100%;
@@ -668,4 +674,47 @@ h1 {
 
 .submenu-link-ms:hover {
     color: #e20074; /* Color rosa similar a Liverpool */
+}
+
+
+/*-------------------- TESTIMONIOS  -----------------------*/
+
+.testimonios {
+    padding: 30px;
+    text-align: center;
+    color: rgb(178, 162, 132);
+}
+.testimonios h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.testimonios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+.testimonio {
+    display: flex;
+    background: #553868;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.testimonio img {
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.contenido h2 {
+    color: rgb(49, 44, 35);
+    margin: 0;
+}
+.contenido p {
+    margin: 5px 0 0;
+    font-size: 22px;
 }

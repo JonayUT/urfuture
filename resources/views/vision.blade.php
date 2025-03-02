@@ -12,7 +12,8 @@
         <section class="contenido">
             <p>
                 Nuestra visión es ser el destino principal para aquellos que buscan herramientas 
-                espirituales y orientación en su camino esotérico. Aspiramos a crear una comunidad 
+                espirituales y orientación en su camino esotérico. 
+                Aspiramos a crear una comunidad 
                 donde la sabiduría ancestral y el conocimiento moderno se unan para inspirar y 
                 empoderar a las personas.
                 
