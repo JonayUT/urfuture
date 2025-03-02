@@ -509,3 +509,55 @@ h1 {
     color: #e83e8c; /* Color rosado para la página activa */
     font-weight: bold; /* Negrita para destacar */
 }
+
+/* MAPA DE SITIO -------------------------------------------*/
+
+.menu-container-ms {
+    width: 100%;
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-ms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Espaciado entre columnas */
+    list-style: none;
+    padding: 0;
+    margin-left: 10%;
+}
+
+.menu-item-ms {
+    width: 200px; /* Ancho de cada categoría */
+}
+
+.menu-link-ms {
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.submenu-ms {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu-ms li {
+    margin-bottom: 5px;
+}
+
+.submenu-link-ms {
+    font-size: 14px;
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.submenu-link-ms:hover {
+    color: #e20074; /* Color rosa similar a Liverpool */
+}
