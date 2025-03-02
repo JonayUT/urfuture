@@ -6,11 +6,14 @@
     <a href="{{ route('inicio') }}" class="logo">UrFuture</a>
 
     <!-- Menú de navegación principal -->
-    <nav class="navbar">
-        <div class="search-box">
+
+    <div class="search-box">
             <i class="fas fa-search search-icon"></i>
             <input type="text" class="form-control" id="searchInput" placeholder="Buscar..." aria-label="Buscar">
-        </div>
+    </div>
+
+    <nav class="navbar">
+        
 
         <div class="dropdown">
             <a href="{{ route('nosotros') }}">Nosotros</a>
@@ -46,7 +49,7 @@
             </ul>
         </div>
         <a href="{{ route('testimonios') }}">Testimonios</a>
-        <a href="{{ route('descubre') }}">Descubre</a>
+        <a href="{{ route('contacto') }}">Contacto</a>
         <!-- Botón de perfil -->
 <div class="dropdown">
     <a href="#">
@@ -67,9 +70,15 @@
 </header>
 <!-- Menú lateral hamburguesa -->
 <div class="sidebar" id="sidebar">
-    <a href="{{ route('perfil') }}">Perfil</a>
-    <a href="{{ route('compras') }}">Compras</a>
+    <!--  <a href="{{ route('perfil') }}">Perfil</a> -->
+    <a href="{{ route('nosotros') }}">Nosotros</a>
+    <a href="{{ route('productos') }}">Productos</a>
+    <a href="{{ route('testimonios') }}">Testimonios</a>
     <a href="{{ route('contacto') }}">Contacto</a>
+    <a href="{{ route('login') }}">Iniciar Sesión</a>
+    <a href="{{ route('register') }}">Registrarse</a>
+
+
 </div>
 <!-- Fondo difuminado -->
 <div class="overlay" id="overlay"></div>
