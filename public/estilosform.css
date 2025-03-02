@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    
+    font-family: "Oswald", sans-serif;
+}
+
+body {
+   
+    background-image: url('/images/fondoestilo.jpg');  /* Cambia esto a la ruta de tu imagen */
+    background-size: cover;
+    
+}
+
+
+
+.login-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px ;
+    padding: 40px;
+    transform: translate(-50% , -50%);
+    background-color: rgba(165, 165, 165, 0.15);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.107);
+    box-sizing: border-box;
+    border-radius: 2em;
+}
+
+.login-box h2{
+    margin: 0 0 30px;
+    padding: 0;
+    color: white;
+    text-align: center;
+}
+
+.login-box .user-box{
+    position: relative;
+}
+
+.login-box .user-box input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 30px;
+    border:none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background-color: transparent;
+}
+
+.login-box .user-box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+    transition: 0.5s ease;
+
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label{
+    top: -20px;
+    left: 0;
+    color: white;
+    font-size: 12px;
+}
+
+.login-box form a{
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    padding: 10px 120px;
+    color: black;
+    font-size: 16px;
+    background-color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s ease;
+    margin-top: 50px;
+    letter-spacing: 4px ;
+    border:  2px solid white;
+}
+
+.login-box a:hover{
+    background-color: transparent;
+    color: white;
+
+}
+
+.remember{
+    color: white;
+}
+
+/* Contenedor del formulario */
+.register-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(165, 165, 165, 0.15);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.107);
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Encabezado */
+header {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 0 30px 0;
+}
+
+/* Estilos para "Ya tienes una cuenta?" */
+.top span {
+    color: white;
+    font-size: small;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.top span a {
+    font-weight: 500;
+    color: white;
+    margin-left: 5px;
+}
+
+/* Campos de entrada */
+.input-box {
+    position: relative;
+    width: 80%;
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px 0 45px; /* Espacio para el ícono */
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+/* Placeholder en color blanco */
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Íconos dentro de los inputs */
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+/* Efecto hover en inputs */
+.input-box input:hover,
+.input-box input:focus {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Botón de registro */
+
+/*.login-box form a{
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    padding: 10px 120px;
+    color: black;
+    font-size: 16px;
+    background-color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s ease;
+    margin-top: 50px;
+    letter-spacing: 4px ;
+    border:  2px solid white;
+}
+
+.login-box a:hover{
+    background-color: transparent;
+    color: white;
+
+}*/
+.submit {
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.submit:hover {
+    background-color: transparent;
+    color: white;
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* "Remember me" y "Términos" */
+.two-col {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+    font-size: small;
+    margin-top: 10px;
+}
+
+.two-col .one {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.two label a {
+    text-decoration: none;
+    color: white;
+}
+
+.two label a:hover {
+    text-decoration: underline;
+}

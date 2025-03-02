@@ -1,24 +1,51 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-    <div class="register-container">
-        <h2>Registro</h2>
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <label>Nombre</label>
-            <input type="text" name="name" required>
+    <div class="register-container" id="register">
+        <div class="top">
+            <span>¿Ya tienes una cuenta? <a href="/login" onclick="login()">Iniciar Sesión</a></span>
+            <header>Regístrate</header>
+        </div>
 
-            <label>Email</label>
-            <input type="email" name="email" required>
+        <!-- Agrupamos Firstname y Lastname en una fila -->
+        <div class="two-forms">
+            <div class="input-box">
+                <i class="bx bx-user"></i>
+                <input type="text" class="input-field" placeholder="Firstname">
+            </div>
 
-            <label>Contraseña</label>
-            <input type="password" name="password" required>
+            <div class="input-box">
+                <i class="bx bx-user"></i>
+                <input type="text" class="input-field" placeholder="Lastname">
+            </div>
+        </div>
 
-            <label>Confirmar Contraseña</label>
-            <input type="password" name="password_confirmation" required>
+        <!-- Email y Password en filas separadas -->
+        <div class="input-box">
+            <i class="bx bx-envelope"></i>
+            <input type="text" class="input-field" placeholder="Email">
+        </div>
 
-            <button type="submit">Registrarse</button>
-        </form>
-        <p>¿Ya tienes cuenta? <a href="{{ route('login') }}">Inicia sesión aquí</a></p>
+        <div class="input-box">
+            <i class="bx bx-lock-alt"></i>
+            <input type="password" class="input-field" placeholder="Password">
+        </div>
+
+        <!-- Botón de registro -->
+        <div class="input-box">
+           <a href="/"> <input type="submit" class="submit" value="Register" > </a>
+
+        </div>
+
+        <!-- Opciones: Recordarme y Términos -->
+        <div class="two-col">
+            <div class="one">
+                <input type="checkbox" id="register-check">
+                <label for="register-check">Recordarme</label>
+            </div>
+            <div class="two">
+                <label><a href="#">Términos y condiciones.</a></label>
+            </div>
+        </div>
     </div>
 @endsection
