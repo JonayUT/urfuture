@@ -126,3 +126,9 @@ Breadcrumbs::for('compras', function (BreadcrumbTrail $trail) {
     $trail->parent('inicio');
     $trail->push('Compras', route('compras'));
 });
+
+// Mapa de Sitio
+Breadcrumbs::for('menu', function (BreadcrumbTrail $trail) {
+    $trail->parent('inicio');
+    $trail->push('Mapa del Sitio', route('menu'));
+});

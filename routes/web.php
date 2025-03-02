@@ -137,4 +137,21 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 
 // Ruta Logout
+
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+// -------------- Ruta para el mapa de sitio -----------------
+
+use App\Http\Controllers\MenuController;
+
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+
+// --------------- Ruta para el error 404 --------------------
+use App\Http\Controllers\ErrorController;
+
+Route::get('/error-404', [ErrorController::class, 'error404'])->name('error.404');
+
+
