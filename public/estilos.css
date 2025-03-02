@@ -48,6 +48,7 @@ body {
 /* Menú hamburguesa */
 /* Estilos del menú hamburguesa */
 .menu-toggle {
+    display: none;
     cursor: pointer;
     font-size: 24px;
     padding: 10px;
@@ -103,6 +104,31 @@ body {
     align-items: center;
     gap: 20px;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    
+    .navbar {
+        display: none; /* Ocultar navbar normal */
+    }
+
+    .search-box{
+        position: relative;
+        width: 200px; /* Reducido para que no sea tan dominante */
+        height: 35px; /* Más compacto */
+        margin: 0 auto;
+        background: linear-gradient(135deg, #D8B7DD, #B387C3); /* Fondo con transparencia */
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle{
+        display: block;
+    }
 }
 
 .card-product{
