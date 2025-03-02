@@ -3,7 +3,7 @@
 @section('content')
 
     <video autoplay muted loop id="background-video">
-        <source src="{{ asset('videos/background_form.mp4') }}" type="video/mp4">
+        <source src="{{ asset('') }}" type="video/mp4">
         Tu navegador no soporta videos.
     </video>
 
