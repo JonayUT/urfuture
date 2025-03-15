@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductosController;
 
 
 /*
@@ -18,12 +19,14 @@ use App\Http\Controllers\AuthController;
 // Ruta Inicio
 Route::get('/', function () {
     return view('inicio');
-}) ->name ('inicio');
+})->name('inicio');
 
 // Ruta Productos
-Route::get('/productos', function () {
-    return view('productos');
-})->name('productos');
+Route::get('/productos', [ProductosController::class, 'show'])->name('productos');
+
+Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
+
+Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
 // Ruta Libros
 
@@ -31,23 +34,23 @@ Route::get('/productos/libros', function () {
     return view('/Productos/libros');
 })->name('libros');
 
-    //Ruta Jovenes Hechiceras
+//Ruta Jovenes Hechiceras
 
-    Route::get('/productos/libros/hechiceras', function () {
-        return view('/Productos/libros/librohechiceras');
-    })->name('hechiceras');
+Route::get('/productos/libros/hechiceras', function () {
+    return view('/Productos/libros/librohechiceras');
+})->name('hechiceras');
 
-    //Ruta Tarot Guia Personal
+//Ruta Tarot Guia Personal
 
-    Route::get('/productos/libros/tarot', function () {
-        return view('/Productos/libros/librotarot');
-    })->name('tarot');
+Route::get('/productos/libros/tarot', function () {
+    return view('/Productos/libros/librotarot');
+})->name('tarot');
 
-    //Ruta The Eye in Ur Hand
+//Ruta The Eye in Ur Hand
 
-    Route::get('/productos/libros/eye', function () {
-        return view('/Productos/libros/libroeye');
-    })->name('eye');
+Route::get('/productos/libros/eye', function () {
+    return view('/Productos/libros/libroeye');
+})->name('eye');
 
 //Ruta Aromaticos
 
@@ -55,17 +58,17 @@ Route::get('/productos/aromaticos', function () {
     return view('/Productos/aromaticos');
 })->name('aromaticos');
 
-    // Ruta Velas Pacificadoras
-    
-    Route::get('/productos/aromaticos/velas', function () {
-        return view('/Productos/aromaticos/aromavelas');
-    })->name('velas');
+// Ruta Velas Pacificadoras
 
-    //Ruta Perlas Aromaticas
+Route::get('/productos/aromaticos/velas', function () {
+    return view('/Productos/aromaticos/aromavelas');
+})->name('velas');
 
-    Route::get('/productos/aromaticos/perlas', function () {
-        return view('/Productos/aromaticos/aromaperlas');
-    })->name('perlas');
+//Ruta Perlas Aromaticas
+
+Route::get('/productos/aromaticos/perlas', function () {
+    return view('/Productos/aromaticos/aromaperlas');
+})->name('perlas');
 
 //Ruta Otros
 
@@ -73,11 +76,11 @@ Route::get('/productos/otros', function () {
     return view('/Productos/otros');
 })->name('otros');
 
-    //Agua de Afrodita
+//Agua de Afrodita
 
-    Route::get('/productos/otros/agua', function () {
-        return view('/Productos/otros/otrosagua');
-    })->name('agua');
+Route::get('/productos/otros/agua', function () {
+    return view('/Productos/otros/otrosagua');
+})->name('agua');
 
 // Ruta Misión
 Route::get('/nosotros/mision', function () {
@@ -153,5 +156,3 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 use App\Http\Controllers\ErrorController;
 
 Route::get('/error-404', [ErrorController::class, 'error404'])->name('error.404');
-
-

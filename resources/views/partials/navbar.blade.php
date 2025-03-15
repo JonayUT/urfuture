@@ -8,12 +8,12 @@
     <!-- Menú de navegación principal -->
 
     <div class="search-box">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="form-control" id="searchInput" placeholder="Buscar..." aria-label="Buscar">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="form-control" id="searchInput" placeholder="Buscar..." aria-label="Buscar">
     </div>
 
     <nav class="navbar">
-        
+
 
         <div class="dropdown">
             <a href="{{ route('nosotros') }}">Nosotros</a>
@@ -51,20 +51,20 @@
         <a href="{{ route('testimonios') }}">Testimonios</a>
         <a href="{{ route('contacto') }}">Contacto</a>
         <!-- Botón de perfil -->
-<div class="dropdown">
-    <a href="#">
-        <img src="{{ asset('images/default-profile.png') }}" alt="Perfil" class="profile-icon">
-    </a>
-    <ul class="navert">
-        @auth
-            <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
-            <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
-        @else
-            <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
-            <li><a href="{{ route('register') }}">Registrarse</a></li>
-        @endauth
-    </ul>
-</div>
+        <div class="dropdown">
+            <a href="#">
+                <img src="{{ asset('images/default-profile.png') }}" alt="Perfil" class="profile-icon">
+            </a>
+            <ul class="navert">
+                @auth
+                <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
+                <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+                @else
+                <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
+                <li><a href="{{ route('register') }}">Registrarse</a></li>
+                @endauth
+            </ul>
+        </div>
 
     </nav>
 </header>
