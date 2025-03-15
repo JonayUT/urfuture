@@ -42,7 +42,6 @@ return [
             'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
             'options' => [
-                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'), // Base de datos para autenticación, generalmente 'admin'.
                 'ssl' => true, // Atlas requiere conexión SSL.
             ],
         ],
