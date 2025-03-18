@@ -109,8 +109,6 @@ Route::get('/nosotros', function () {
     return view('nosotros');
 })->name('nosotros');
 
-//pendientes -----------------------------
-
 // Ruta Testimonios
 Route::get('/testimonios', function () {
     return view('testimonios');
