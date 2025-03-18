@@ -15,38 +15,6 @@
         <strong>Precio:</strong> ${{ number_format($producto->Precio, 2) }} <br>
         <strong>Categoría:</strong> {{ $producto->Tipo }} <br>
 
-        <!-- Formulario para eliminar -->
-    <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
-        onsubmit="return confirmarEliminacion(event, this)">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn-eliminar">Eliminar</button>
-    </form>
-    </p>
-    <hr>
-    @empty
-    <p>No hay productos</p>
-    @endforelse
-
-    <script>
-        function confirmarEliminacion(event, form) {
-            event.preventDefault();
-            if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
-                form.submit();
-            }
-        }
-    </script>
-</div>
-
-
-<div class="MostrarProductos">
-    @forelse ($productos as $producto)
-    <p>
-        <strong>Nombre:</strong> {{ $producto->Nombre }} <br>
-        <strong>Descripción:</strong> {{ $producto->Descripcion }} <br>
-        <strong>Precio:</strong> ${{ number_format($producto->Precio, 2) }} <br>
-        <strong>Categoría:</strong> {{ $producto->Tipo }} <br>
-
         <!-- Botón de Editar -->
         <button
             onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Precio }}', '{{ $producto->Tipo }}')">Editar</button>
@@ -64,6 +32,27 @@
     <p>No hay productos</p>
     @endforelse
 </div>
+
+<!-- Agregar productos -->
+<div class="AgregarProducto">
+    <form action="{{ route('productos.store') }}" method="POST">
+        @csrf
+        <label for="Nombre">Nombre</label>
+        <input type="text" name="Nombre" id="Nombre" required>
+
+        <label for="Descripcion">Descripción</label>
+        <input type="text" name="Descripcion" id="Descripcion" required>
+
+        <label for="Precio">Precio</label>
+        <input type="number" name="Precio" id="Precio" required step="0.01">
+
+        <label for="Tipo">Tipo</label>
+        <input type="text" name="Tipo" id="Tipo" required>
+
+        <button type="submit">Agregar</button>
+    </form>
+</div>
+<!-- Fin agregar productos -->
 
 <!-- Modal para editar producto -->
 <div id="modalEditar"
@@ -115,7 +104,7 @@
         }
     }
 </script>
-
+<!-- Fin editar productos -->
 
 <h1>Nuestra Tienda</h1>
 <main>
