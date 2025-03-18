@@ -26,6 +26,8 @@ Route::get('/productos', [ProductosController::class, 'show'])->name('productos'
 
 Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
 
+Route::put('/productos/{id}', [ProductosController::class, 'update'])->name('productos.update');
+
 Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
 // Ruta Libros

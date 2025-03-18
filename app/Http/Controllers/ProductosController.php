@@ -37,6 +37,30 @@ class ProductosController extends Controller
 
         return redirect()->route('productos')->with('success', 'Producto agregado correctamente');
     }
+
+    public function update(Request $request, $id)
+    {
+        // Validar los datos
+        $data = $request->validate([
+            'Nombre' => 'required|string|max:255',
+            'Descripcion' => 'required|string',
+            'Precio' => 'required|numeric',
+            'Tipo' => 'required|string'
+        ]);
+
+        // Buscar el producto en la base de datos
+        $producto = Productos::find($id);
+
+        if (!$producto) {
+            return redirect()->route('productos')->with('error', 'Producto no encontrado');
+        }
+
+        // Actualizar los datos del producto
+        $producto->update($data);
+
+        return redirect()->route('productos')->with('success', 'Producto actualizado correctamente');
+    }
+
     public function destroy($id)
     {
         $producto = Productos::find($id);
