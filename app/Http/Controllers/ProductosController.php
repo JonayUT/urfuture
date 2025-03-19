@@ -22,6 +22,7 @@ class ProductosController extends Controller
         $data = $request->validate([
             'Nombre' => 'required|string|max:255',
             'Descripcion' => 'required|string',
+            'Imagen' => 'required',
             'Precio' => 'required|numeric',
             'Tipo' => 'required|string'
         ]);
@@ -30,6 +31,7 @@ class ProductosController extends Controller
         $producto = new Productos();
         $producto->Nombre = $data['Nombre'];
         $producto->Descripcion = $data['Descripcion'];
+        $producto->Imagen = $data['Imagen'];
         $producto->Precio = $data['Precio'];
         $producto->Tipo = $data['Tipo'];
 
@@ -44,6 +46,7 @@ class ProductosController extends Controller
         $data = $request->validate([
             'Nombre' => 'required|string|max:255',
             'Descripcion' => 'required|string',
+            'Imagen' => 'required',
             'Precio' => 'required|numeric',
             'Tipo' => 'required|string'
         ]);
