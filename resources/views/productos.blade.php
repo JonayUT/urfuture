@@ -12,12 +12,14 @@
     <p>
         <strong>Nombre:</strong> {{ $producto->Nombre }} <br>
         <strong>Descripción:</strong> {{ $producto->Descripcion }} <br>
+        <strong>Imagen:</strong><br>
+        <img src="{{ $producto->Imagen }}" alt="{{ $producto->Nombre }}"><br>
         <strong>Precio:</strong> ${{ number_format($producto->Precio, 2) }} <br>
         <strong>Categoría:</strong> {{ $producto->Tipo }} <br>
 
         <!-- Botón de Editar -->
         <button
-            onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Precio }}', '{{ $producto->Tipo }}')">Editar</button>
+            onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Imagen }}','{{ $producto->Precio }}', '{{ $producto->Tipo }}')">Editar</button>
 
         <!-- Formulario para eliminar -->
     <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
@@ -43,6 +45,9 @@
         <label for="Descripcion">Descripción</label>
         <input type="text" name="Descripcion" id="Descripcion" required>
 
+        <label for="Imagen">Imagen</label>
+        <input type="text" name="Imagen" id="Imagen" required>
+
         <label for="Precio">Precio</label>
         <input type="number" name="Precio" id="Precio" required step="0.01">
 
@@ -67,6 +72,8 @@
         <input type="text" name="Nombre" id="edit_nombre">
         <label for="edit_descripcion">Descripción</label>
         <input type="text" name="Descripcion" id="edit_descripcion">
+        <label for="edit_imagen">Imagen</label>
+        <input type="text" name="Imagen" id="edit_imagen">
         <label for="edit_precio">Precio</label>
         <input type="number" name="Precio" id="edit_precio">
         <label for="edit_tipo">Categoría</label>
@@ -78,10 +85,11 @@
 </div>
 
 <script>
-    function mostrarModal(id, nombre, descripcion, precio, tipo) {
+    function mostrarModal(id, nombre, descripcion, imagen, precio, tipo) {
     document.getElementById('edit_id').value = id;
     document.getElementById('edit_nombre').value = nombre;
     document.getElementById('edit_descripcion').value = descripcion;
+    document.getElementById('edit_imagen').value = imagen;
     document.getElementById('edit_precio').value = precio;
     document.getElementById('edit_tipo').value = tipo;
 

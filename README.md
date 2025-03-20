@@ -134,7 +134,30 @@ Para iniciar la aplicación y verificar que todo funciona correctamente, sigue e
 
 Si ves la página Principal del proyecto, ¡todo está listo para comenzar! 🎉
 
+## 💻 -> 🖥 Proceso de tunnel
 
+El proceso de tunnel se utiliza como alternativa de un host para pocos usuarios y se utilizo - [Ngrok](https://ngrok.com) y se siguieron loas pasos que marca su documentacion, aqui un pequeño resumen
+
+1. Instalacion via Chocolatey(Abrir Power-Shell como administrador):
+
+   ```sh
+   choco install ngrok
+   ```
+
+2. Inicia sesion en la pagina de [Ngrok-Login](https://dashboard.ngrok.com/signup?ref=home-hero) ; Para obtener tu toquen de autenticación
+
+3. Sin cerrar la terminal utilizar el siguiente comando para agregar tu token de atentificacion de manera automatica:
+
+   ```sh
+   ngrok config add-authtoken [Tu_token]
+   ```
+
+4. Una vez registrado tu token, se ejecutara el sistema de tunnel con un puerto a eleccion(Preferentemente el que utilizan como local-host):
+    ```sh
+    ngrok http --url = [Tu_url_personalizada] [Puerto]
+    ```
+
+### ❕ Para mas informacion y una guia mas especifica a las necesidades personales revisar el siguiente vinculo [Ngrok-Started](https://dashboard.ngrok.com/get-started/setup/windows)
 ## 🛠 Hoja de Comandos de Git
 
 - **Crear y cambiar a una nueva rama**
