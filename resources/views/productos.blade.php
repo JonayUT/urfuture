@@ -54,7 +54,7 @@
         <label for="Tipo">Tipo</label>
         <input type="text" name="Tipo" id="Tipo" required>
 
-        <button type="submit">Agregar</button>
+        <button type="submit" id="AgregarPd" class="Agregar">Agregar</button>
     </form>
 </div>
 <!-- Fin agregar productos -->
