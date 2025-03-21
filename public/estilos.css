@@ -772,7 +772,7 @@ h1 {
 
 /* Estilos de la tarjeta */
 .card {
-    background: #e7beef; /* Color de fondo suave */
+    background: whitesmoke; /* Color de fondo suave */
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     overflow: hidden;
