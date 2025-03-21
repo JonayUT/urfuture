@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', 'Registro')
+
 @section('content')
     <div class="register-container" id="register">
         <div class="top">
@@ -8,17 +10,23 @@
         </div>
 
         <!-- Agrupamos Firstname y Lastname en una fila -->
-        <div class="two-forms">
-            <div class="input-box">
-                <i class="bx bx-user"></i>
-                <input type="text" class="input-field" placeholder="Firstname">
-            </div>
-
-            <div class="input-box">
-                <i class="bx bx-user"></i>
-                <input type="text" class="input-field" placeholder="Lastname">
-            </div>
+        
+        <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" placeholder="User">
         </div>
+
+        <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" placeholder="Firstname">
+        </div>
+
+        <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" placeholder="Lastname">
+        </div>
+        
+
 
         <!-- Email y Password en filas separadas -->
         <div class="input-box">
@@ -32,9 +40,10 @@
         </div>
 
         <!-- Botón de registro -->
-        <div class="input-box">
-           <a href="/"> <input type="submit" class="submit" value="Register" > </a>
-
+        <div class="input-box" id="btn">
+           <a href="/"> 
+           <i class="bx bx-lock-alt"></i>
+            <input type="submit" class="submit" value="Register"></a>
         </div>
 
         <!-- Opciones: Recordarme y Términos -->

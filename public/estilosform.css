@@ -99,8 +99,10 @@ body {
     color: white;
 }
 
+
 /* Contenedor del formulario */
 .register-container {
+    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -140,8 +142,8 @@ header {
 
 /* Campos de entrada */
 .input-box {
-    position: relative;
-    width: 80%;
+    position:relative ;
+    width: 100%;
     margin-bottom: 15px;
 }
 
@@ -151,11 +153,11 @@ header {
     color: white;
     height: 50px;
     width: 100%;
-    padding: 0 15px 0 45px; /* Espacio para el ícono */
     border: none;
     border-radius: 30px;
     outline: none;
     transition: 0.2s ease;
+    text-align: center;
 }
 
 /* Placeholder en color blanco */
@@ -166,7 +168,6 @@ header {
 /* Íconos dentro de los inputs */
 .input-box i {
     position: absolute;
-    left: 15px;
     top: 50%;
     transform: translateY(-50%);
     color: white;
@@ -177,6 +178,7 @@ header {
 .input-box input:focus {
     background: rgba(255, 255, 255, 0.25);
 }
+
 
 /* Botón de registro */
 
@@ -201,19 +203,14 @@ header {
 .login-box a:hover{
     background-color: transparent;
     color: white;
-
 }*/
+
+
+
 .submit {
-    font-size: 15px;
-    font-weight: 500;
-    color: black;
-    height: 45px;
-    width: 100%;
-    border: none;
-    border-radius: 30px;
-    background-color: white;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .submit:hover {
@@ -221,6 +218,9 @@ header {
     color: white;
     box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
 }
+
+
+
 
 /* "Remember me" y "Términos" */
 .two-col {

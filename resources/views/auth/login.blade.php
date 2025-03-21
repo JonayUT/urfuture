@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', 'Inicio de Sesion')
+
 @section('content')
 
     <div class="login-box">
