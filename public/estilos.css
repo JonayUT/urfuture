@@ -744,3 +744,268 @@ h1 {
     margin: 5px 0 0;
     font-size: 22px;
 }
+
+/*-------------------- CARDS  -----------------------*/
+.container-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: thistle;
+    text-align: center;
+}
+
+/* Contenedor de las cards con Grid */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Limitar el número máximo de columnas a 4 */
+@media (min-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Estilos de la tarjeta */
+.card {
+    background: #e7beef; /* Color de fondo suave */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en la card */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen de la card */
+.card img {
+    width: 150px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Cuerpo de la card */
+.card-body {
+    padding: 15px;
+}
+
+/* Título del producto */
+.card-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2d008d; /* Azul vibrante */
+}
+
+/* Descripción del producto */
+.card-text {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Precio */
+.card-text strong {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e44d26; /* Rojo vibrante */
+}
+
+/* Botones */
+.btn-card, .btn-eliminar, .btn-editar, #btnAgregarProducto {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#btnAgregarProducto
+{
+    background-color: #2ed441;
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+}
+
+.btn-card {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-card:hover {
+    background-color: #0056b3;
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-eliminar:hover {
+    background-color: #a71d2a;
+}
+
+.btn-editar {
+    background-color: #35c9dc;
+    color: white;
+    border: none;
+}
+
+.btn-editar:hover {
+    background-color: #24afc2;
+}
+
+/*-------------------- FORMULARIO DE AGREGAR PRODUCTO  -----------------------*/
+
+.form-agregar {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.form-agregar label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.form-agregar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+.form-agregar input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#btnAgregarProducto {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#btnAgregarProducto:hover {
+    background: #0056b3;
+}
+
+/* Estilos para el formulario de editar producto */
+#modalEditar {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    height: 580px;
+    width: 700px;
+    margin-top: 20px;
+}
+
+.form-editar {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 20px;
+    height: 450px;
+}
+
+.form-editar label {
+    margin: 0px;
+    height: 30px;
+    font-weight: bold;
+    color: #280a39;
+    font-size: medium;
+
+}
+
+.form-editar input {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #280a39;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease-in-out;
+}
+
+.form-editar input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+.form-editar input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 1);
+}
+
+.btn-submit {
+    margin-top: 5px;
+    padding: 6px 10px;
+    background: linear-gradient(135deg, #5c3e77, #7a5fa6);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #4e3266, #6c4e94);
+    box-shadow: 0 2px 8px rgba(122, 95, 166, 0.3);
+}
+
+.btn-cancelar {
+    padding: 6px 10px;
+    background: #e44d26;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease-in-out;
+    margin-top: 5px;
+}
+
+.btn-cancelar:hover {
+    background: #c43d1a;
+    box-shadow: 0 2px 8px rgba(228, 77, 38, 0.3);
+}
