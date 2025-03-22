@@ -107,7 +107,7 @@ body {
     top: 50%;
     left: 50%;
     width: 500px;
-    padding: 40px;
+    padding: 50px;
     transform: translate(-50%, -50%);
     background-color: rgba(67, 30, 2, 0.589);
     backdrop-filter: blur(20px);
@@ -130,22 +130,25 @@ header {
 .top span {
     color: white;
     font-size: 20px;
-    padding: 10px 0;
     text-align: center;
 }
 
 .top span a {
     font-weight: 500;
     color: white;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 /* Campos de entrada */
 .input-box {
-    position:relative ;
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra verticalmente */
     width: 100%;
     margin-bottom: 15px;
+    position: relative;
 }
+
 
 .input-box input {
     font-size: 20px;
@@ -158,6 +161,7 @@ header {
     outline: none;
     transition: 0.2s ease;
     text-align: center;
+    max-width: 500px;
 }
 
 /* Placeholder en color blanco */
@@ -168,10 +172,12 @@ header {
 /* Íconos dentro de los inputs */
 .input-box i {
     position: absolute;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     color: white;
 }
+
 
 /* Efecto hover en inputs */
 .input-box input:hover,
@@ -206,12 +212,6 @@ header {
 }*/
 
 
-
-.submit {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
 
 .submit:hover {
     background-color: transparent;
