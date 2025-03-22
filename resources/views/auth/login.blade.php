@@ -7,12 +7,12 @@
     <div class="login-box">
         <form action="submit">
             <div class="user-box">
-                <input type="text" required>
+                <input type="text" name="usuario" id="usuario" required>
                 <label for="">Usuario</label>
             </div>
 
             <div class="user-box">
-                <input type="password" required>
+                <input type="password" name="password" id="password" required>
                 <label for="">Contraseña</label>
             </div>
 
@@ -21,7 +21,8 @@
                 Recordar contraseña
             </div>
             
-            <a href="/">Inicio</a>
+            <input class="btn-log" type="button" id="iniciar" placeholder="INICIO">
+            
         </form>
     </div>
 
