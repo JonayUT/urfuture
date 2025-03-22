@@ -4,8 +4,9 @@
 
 @section('content')
 
+
     <div class="login-box">
-        <form action="submit">
+        <form action="submit" id="loginForm">
             <div class="user-box">
                 <input type="text" name="usuario" id="usuario" required>
                 <label for="">Usuario</label>
@@ -21,9 +22,15 @@
                 Recordar contraseña
             </div>
             
-            <input class="btn-log" type="button" id="iniciar" placeholder="INICIO">
+            <input class="btn-log" type="button" id="inicio" placeholder="INICIO">
             
         </form>
     </div>
+
+@endsection
+
+@section('scripts')     
+
+<script src="{{ asset('js/validation_alerts.js') }}"></script>   
 
 @endsection
