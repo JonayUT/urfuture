@@ -3,22 +3,30 @@
 @section('title', 'Otros')
 
 @section('content')
- 
-    <!-- Breadcrumbs -->
-   {{ Breadcrumbs::render('otros') }}
-   <!-- --------- -->
 
-   <h1 class="neon-text">OTROS</h1>
-   <main>
-        <section class="productos-i">
-            <div class="producto">
-               <a class="card-product" href="/productos/otros/agua">
-               <img src="/images/producto2.jpg" alt="Producto 2">
-                <h2>Agua de Afrodita</h2>
-                <p>La diosa de la belleza te convertira en un iman de humanos.</p>
-                <span>$200</span>
-               </a> 
+    <!-- Breadcrumbs -->
+    {{ Breadcrumbs::render('otros') }}
+    <!-- --------- -->
+
+<h1>Otros Productos</h1>
+
+<div class="MostrarProductos">
+    <div class="container-card">
+        <div class="row">
+            @forelse ($productos as $producto)
+            <div class="card">
+                <img src="{{ $producto->Imagen }}" alt="{{ $producto->Nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $producto->Nombre }}</h5>
+                    <p class="card-text">{{ $producto->Descripcion }}</p>
+                    <p class="card-text"><strong>${{ number_format($producto->Precio, 2) }}</strong></p>
+                    <a href="{{ route('productos.show', $producto->_id) }}" class="btn-card">Ver más</a>
+                </div>
             </div>
-        </section>
-    </main>
-   @endsection
+            @empty
+            <p>No hay productos disponibles</p>
+            @endforelse
+        </div>
+    </div>
+</div>
+@endsection

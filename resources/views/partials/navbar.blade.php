@@ -13,38 +13,25 @@
     </div>
 
     <nav class="navbar">
-
-
         <div class="dropdown">
             <a href="{{ route('nosotros') }}">Nosotros</a>
             <ul class="navert">
                 <li><a href="{{ route('vision') }}">Visión</a></li>
                 <li><a href="{{ route('mision') }}">Misión</a></li>
                 <li><a href="{{ route('valores') }}">Valores</a></li>
+            </ul>
         </div>
         <div class="dropdown">
             <a href="{{ route('productos') }}">Productos</a>
             <ul class="navert">
                 <li class="submenu">
                     <a href="{{ route('libros') }}">Libros</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('hechiceras') }}">Jovenes Hechiceras</a></li>
-                        <li><a href="{{ route('tarot') }}">Tarot Guia Personal</a></li>
-                        <li><a href="{{ route('eye') }}">The Eye in Ur Hand</a></li>
-                    </ul>
                 </li>
                 <li class="submenu">
                     <a href="{{ route('aromaticos') }}">Aromaticos</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('velas') }}">Velas Pacificadoras</a></li>
-                        <li><a href="{{ route('perlas') }}">Perlas Aromaticas</a></li>
-                    </ul>
                 </li>
                 <li class="submenu">
                     <a href="{{ route('otros') }}">Otros</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('agua') }}">Agua de Afrodita</a></li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -58,14 +45,21 @@
             <ul class="navert">
                 @auth
                 <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
-                <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+                @if(Auth::user()->hasRole('admin'))
+                <li><a href="{{ route('users.roles') }}">Usuarios/Roles</a></li>
+                @endif
+                <li>
+                    <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Cerrar Sesión</a>
+                </li>
                 @else
                 <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                 <li><a href="{{ route('register') }}">Registrarse</a></li>
                 @endauth
             </ul>
         </div>
-
     </nav>
 </header>
 <!-- Menú lateral hamburguesa -->
@@ -77,8 +71,6 @@
     <a href="{{ route('contacto') }}">Contacto</a>
     <a href="{{ route('login') }}">Iniciar Sesión</a>
     <a href="{{ route('register') }}">Registrarse</a>
-
-
 </div>
 <!-- Fondo difuminado -->
 <div class="overlay" id="overlay"></div>
