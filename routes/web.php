@@ -133,15 +133,13 @@ Route::get('/compras', function () {
 
 // Ruta Login
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Ruta Register
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 // Ruta Logout
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -173,3 +171,4 @@ Route::post('/users/{id}/remove-role', [RoleController::class, 'removeRole'])->n
 // Ruta para mostrar todos los usuarios con sus roles
 
 Route::get('/users/roles', [RoleController::class, 'showUsersWithRoles'])->name('users.roles');
+

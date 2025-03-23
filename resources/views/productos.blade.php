@@ -20,16 +20,24 @@
                     <p class="card-text">{{ $producto->Descripcion }}</p>
                     <p class="card-text"><strong>${{ number_format($producto->Precio, 2) }}</strong></p>
                     <a href="#" class="btn-card">Ver más</a>
-                    <button class="btn-editar"
-                        onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Imagen }}','{{ $producto->Precio }}', '{{ $producto->Tipo }}')">
-                        Editar
-                    </button>
-                    <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
-                        onsubmit="return confirmarEliminacion(event, this)">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn-eliminar">Eliminar</button>
-                    </form>
+                    @auth
+                        @if(Auth::user()->hasRole('admin'))
+                        <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
+                            onsubmit="return confirmarEliminacion(event, this)">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn-eliminar">Eliminar</button>
+                        </form> 
+                        @endif
+                        @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
+                        <button class="btn-editar"
+                            onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Imagen }}','{{ $producto->Precio }}', '{{ $producto->Tipo }}')">
+                            Editar
+                        </button>
+                        @endif
+                    @endauth
+                    
+                    
                 </div>
             </div>
             @empty

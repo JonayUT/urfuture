@@ -10,15 +10,17 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Usuario</th>
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Acciones</th>
+                <th>Asignar Rol</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
                 <tr>
+                    <td>{{ $user->username }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
@@ -47,14 +49,13 @@
                         <form method="POST" action="{{ route('assign.role', ['userId' => $user->id]) }}">
                             @csrf
                             <div class="form-group">
-                                <label for="role_{{ $user->id }}">Assign Role</label>
                                 <select name="role" id="role_{{ $user->id }}" class="form-control">
                                     <option value="admin">Admin</option>
                                     <option value="editor">Editor</option>
                                     <option value="viewer">Viewer</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Assign Role</button>
+                            <button type="submit" class="btn btn-primary">Asignar</button>
                         </form>
                     </td>
                 </tr>

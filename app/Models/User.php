@@ -15,6 +15,7 @@ class User extends Model implements AuthenticatableContract
     protected $collection = 'users';
 
     protected $fillable = [
+        'username',
         'name',
         'email',
         'password',
@@ -22,6 +23,7 @@ class User extends Model implements AuthenticatableContract
     ];
 
     protected $casts = [
+        'username' => 'string',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'roles' => 'array', // Asegurar que roles es un array
