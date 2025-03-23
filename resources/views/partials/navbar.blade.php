@@ -11,6 +11,7 @@
         <input type="text" class="form-control" id="searchInput" placeholder="Buscar..." aria-label="Buscar">
     </div>
 
+
     <!-- Modo Oscuro -->
     <button id="dark-mode-toggle" class="dark-mode-btn">🌙</button>
 
@@ -29,24 +30,12 @@
             <ul class="navert">
                 <li class="submenu">
                     <a href="{{ route('libros') }}">Libros</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('hechiceras') }}">Jóvenes Hechiceras</a></li>
-                        <li><a href="{{ route('tarot') }}">Tarot Guía Personal</a></li>
-                        <li><a href="{{ route('eye') }}">The Eye in Ur Hand</a></li>
-                    </ul>
                 </li>
                 <li class="submenu">
                     <a href="{{ route('aromaticos') }}">Aromáticos</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('velas') }}">Velas Pacificadoras</a></li>
-                        <li><a href="{{ route('perlas') }}">Perlas Aromáticas</a></li>
-                    </ul>
                 </li>
                 <li class="submenu">
                     <a href="{{ route('otros') }}">Otros</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('agua') }}">Agua de Afrodita</a></li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -62,7 +51,15 @@
             <ul class="navert">
                 @auth
                 <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
-                <li><a href="{{ route('logout') }}">Cerrar Sesión</a></li>
+                @if(Auth::user()->hasRole('admin'))
+                <li><a href="{{ route('users.roles') }}">Usuarios/Roles</a></li>
+                @endif
+                <li>
+                    <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Cerrar Sesión</a>
+                </li>
                 @else
                 <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
                 <li><a href="{{ route('register') }}">Registrarse</a></li>
