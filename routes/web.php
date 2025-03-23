@@ -35,23 +35,13 @@ Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name(
 Route::get('/productos/{id}', [ProductosController::class, 'mostrarProducto'])->name('productos.show');
 
 // Ruta Libros
+Route::get('/productos/libros', [ProductosController::class, 'filtrarPorCategoria'])->name('libros')->defaults('categoria', 'Libros');
 
-Route::get('/productos/libros', function () {
-    return view('/Productos/libros');
-})->name('libros');
+// Ruta Aromaticos
+Route::get('/productos/aromaticos', [ProductosController::class, 'filtrarPorCategoria'])->name('aromaticos')->defaults('categoria', 'Aromaticos');
 
-
-//Ruta Aromaticos
-
-Route::get('/productos/aromaticos', function () {
-    return view('/Productos/aromaticos');
-})->name('aromaticos');
-
-//Ruta Otros
-
-Route::get('/productos/otros', function () {
-    return view('/Productos/otros');
-})->name('otros');
+// Ruta Otros
+Route::get('/productos/otros', [ProductosController::class, 'filtrarPorCategoria'])->name('otros')->defaults('categoria', 'Otros');
 
 // Ruta Misión
 Route::get('/nosotros/mision', function () {

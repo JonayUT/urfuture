@@ -746,7 +746,42 @@ h1 {
     font-size: 22px;
 }
 
+/*-------------------- FILTRO BUSQUEDA PRODUCTOS  -----------------------*/
+
+filtros-busqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 50px;
+}
+
+@media (max-width: 700px) {
+    .filtros-busqueda {
+        display: none;
+    }
+    .row-productos
+    {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .contenedor-productos
+    {
+        width: 100%;
+        margin-left: -235px;
+    }
+}
+
 /*-------------------- CARDS  -----------------------*/
+.contenedor-productos {
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
 .container-card {
     max-width: 1200px;
     margin: 0 auto;
@@ -764,12 +799,18 @@ h1 {
     justify-content: center;
 }
 
+.row-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
+}
+
 /* Limitar el número máximo de columnas a 4 */
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
     .row {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
 
 /* Estilos de la tarjeta */
 .card {
