@@ -9,11 +9,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductosController extends Controller
 {
-    public function show()
+    public function index()
     {
         return view('productos', [
             'productos' => Productos::all()
         ]);
+    }
+
+    public function mostrarProducto($id)
+    {
+        $producto = Productos::findOrFail($id);
+        return view('productos.show', compact('producto'));
     }
 
     public function store(Request $request)

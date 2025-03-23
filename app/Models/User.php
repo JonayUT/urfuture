@@ -29,6 +29,11 @@ class User extends Model implements AuthenticatableContract
         'roles' => 'array', // Asegurar que roles es un array
     ];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
     public function hasRole($role)
     {
         return in_array($role, $this->roles ?? []);

@@ -26,24 +26,12 @@
             <ul class="navert">
                 <li class="submenu">
                     <a href="{{ route('libros') }}">Libros</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('hechiceras') }}">Jovenes Hechiceras</a></li>
-                        <li><a href="{{ route('tarot') }}">Tarot Guia Personal</a></li>
-                        <li><a href="{{ route('eye') }}">The Eye in Ur Hand</a></li>
-                    </ul>
                 </li>
                 <li class="submenu">
                     <a href="{{ route('aromaticos') }}">Aromaticos</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('velas') }}">Velas Pacificadoras</a></li>
-                        <li><a href="{{ route('perlas') }}">Perlas Aromaticas</a></li>
-                    </ul>
                 </li>
                 <li class="submenu">
                     <a href="{{ route('otros') }}">Otros</a>
-                    <ul class="subnav">
-                        <li><a href="{{ route('agua') }}">Agua de Afrodita</a></li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -57,6 +45,9 @@
             <ul class="navert">
                 @auth
                 <li><a href="{{ route('perfil') }}">Mi Perfil</a></li>
+                @if(Auth::user()->hasRole('admin'))
+                <li><a href="{{ route('users.roles') }}">Usuarios/Roles</a></li>
+                @endif
                 <li>
                     <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

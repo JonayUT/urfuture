@@ -11,6 +11,50 @@
 
 <div class="MostrarProductos">
     <div class="container-card">
+
+        <!-- Agregar productos -->
+        @if(Auth::user()->hasRole('editor') || Auth::user()->hasRole('admin')) 
+            <button id="btnAgregarProducto" onclick="toggleAgregarProducto()">Agregar Producto</button>
+            <div class="AgregarProducto" id="AgregarProducto" style="display: none;">
+                <form action="{{ route('productos.store') }}" method="POST" class="form-agregar">
+                    @csrf
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" name="Nombre" id="Nombre" required>
+                    <br>
+                    <label for="Descripcion">Descripción</label>
+                    <input type="text" name="Descripcion" id="Descripcion" required>
+                    <br>
+                    <label for="Imagen">Imagen</label>
+                    <input type="text" name="Imagen" id="Imagen" required>
+                    <br>
+                    <label for="Precio">Precio</label>
+                    <input type="number" name="Precio" id="Precio" required step="0.01">
+                    <br>
+                    <label for="edit_tipo">Categoría</label>
+                    <select name="Tipo" id="edit_tipo" required>
+                        <option value="Libros">Libros</option>
+                        <option value="Aromaticos">Aromaticos</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                    <br>
+                    <button type="submit" id="btnAgregarProducto">Agregar</button>
+                </form>
+            </div>
+
+            <script>
+                function toggleAgregarProducto() {
+                    var agregarProductoDiv = document.getElementById('AgregarProducto');
+                    if (agregarProductoDiv.style.display === 'none') {
+                        agregarProductoDiv.style.display = 'block';
+                    } else {
+                        agregarProductoDiv.style.display = 'none';
+                    }
+                }
+            </script>
+        @endif
+        <!-- Fin agregar productos -->
+
+        <!-- Mostrar productos -->
         <div class="row">
             @forelse ($productos as $producto)
             <div class="card">
@@ -19,7 +63,7 @@
                     <h5 class="card-title">{{ $producto->Nombre }}</h5>
                     <p class="card-text">{{ $producto->Descripcion }}</p>
                     <p class="card-text"><strong>${{ number_format($producto->Precio, 2) }}</strong></p>
-                    <a href="#" class="btn-card">Ver más</a>
+                    <a href="{{ route('productos.show', $producto->_id) }}" class="btn-card">Ver más</a>
                     @auth
                         @if(Auth::user()->hasRole('admin'))
                         <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
@@ -36,55 +80,14 @@
                         </button>
                         @endif
                     @endauth
-                    
-                    
                 </div>
             </div>
             @empty
             <p>No hay productos disponibles</p>
             @endforelse
         </div>
-
-        <!-- Agregar productos -->
-
-        <button id="btnAgregarProducto" onclick="toggleAgregarProducto()">Agregar Producto</button>
-        <div class="AgregarProducto" id="AgregarProducto" style="display: none;">
-            <form action="{{ route('productos.store') }}" method="POST" class="form-agregar">
-                @csrf
-                <label for="Nombre">Nombre</label>
-                <input type="text" name="Nombre" id="Nombre" required>
-                <br>
-                <label for="Descripcion">Descripción</label>
-                <input type="text" name="Descripcion" id="Descripcion" required>
-                <br>
-                <label for="Imagen">Imagen</label>
-                <input type="text" name="Imagen" id="Imagen" required>
-                <br>
-                <label for="Precio">Precio</label>
-                <input type="number" name="Precio" id="Precio" required step="0.01">
-                <br>
-                <label for="Tipo">Categoria</label>
-                <input type="text" name="Tipo" id="Tipo" required>
-                <br>
-                <button type="submit" id="btnAgregarProducto">Agregar</button>
-            </form>
-        </div>
-
-        <script>
-            function toggleAgregarProducto() {
-                var agregarProductoDiv = document.getElementById('AgregarProducto');
-                if (agregarProductoDiv.style.display === 'none') {
-                    agregarProductoDiv.style.display = 'block';
-                } else {
-                    agregarProductoDiv.style.display = 'none';
-                }
-            }
-        </script>
-        <!-- Fin agregar productos -->
     </div>
 </div>
-
-
 
 <!-- Modal para editar producto -->
 <div id="modalEditar" class="modal">
@@ -107,7 +110,11 @@
         <input type="number" name="Precio" id="edit_precio" required step="0.01">
         <br>
         <label for="edit_tipo">Categoría</label>
-        <input type="text" name="Tipo" id="edit_tipo" required>
+        <select name="Tipo" id="edit_tipo" required>
+            <option value="Libros">Libros</option>
+            <option value="Aromaticos">Aromaticos</option>
+            <option value="Otros">Otros</option>
+        </select>
         <br>
         <button type="submit" class="btn-submit">Guardar cambios</button>
         <button type="button" onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
@@ -143,8 +150,5 @@
     }
 </script>
 <!-- Fin editar productos -->
-
-
-
 
 @endsection

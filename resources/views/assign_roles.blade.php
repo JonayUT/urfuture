@@ -4,6 +4,13 @@
 <div class="container">
     <h1>Administrador de Usuarios y Roles</h1>
 
+    <!-- Leyenda del administrador en sesión -->
+    @auth
+        @if(Auth::user()->hasRole('admin'))
+            <p class="text-right text-muted">Administrador en sesión: {{ Auth::user()->name }}</p>
+        @endif
+    @endauth
+
     <!-- Mostrar los usuarios registrados con sus roles -->
     <h3>Usuarios:</h3>
 
@@ -15,6 +22,7 @@
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Asignar Rol</th>
+                <th>Eliminar Usuario</th>
             </tr>
         </thead>
         <tbody>
@@ -33,10 +41,9 @@
                                         <!-- Formulario para remover rol -->
                                         <form method="POST" action="{{ route('remove.role', ['id' => $user->id]) }}" style="display:inline;">
                                             @csrf
-                                                <input type="hidden" name="role" value="{{ $role }}">
-                                                    <button type="submit" class="btn btn-danger btn-sm">X</button>
+                                            <input type="hidden" name="role" value="{{ $role }}">
+                                            <button type="submit" class="btn btn-danger btn-sm">X</button>
                                         </form>
-
                                     </li>
                                 @endforeach
                             </ul>
@@ -56,6 +63,14 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Asignar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <!-- Formulario para eliminar usuario -->
+                        <form method="POST" action="{{ route('delete.user', ['id' => $user->id]) }}" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>

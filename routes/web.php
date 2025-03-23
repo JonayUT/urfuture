@@ -22,7 +22,8 @@ Route::get('/', function () {
 })->name('inicio');
 
 // Ruta Productos
-Route::get('/productos', [ProductosController::class, 'show'])->name('productos');
+Route::get('/productos', [ProductosController::class, 'index'])->name('productos');
+Route::get('/productos/categoria/{categoria}', [ProductosController::class, 'filtrarPorCategoria'])->name('productos.categoria');
 
 Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
 
@@ -30,29 +31,14 @@ Route::put('/productos/{id}', [ProductosController::class, 'update'])->name('pro
 
 Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
+Route::get('/productos/{id}', [ProductosController::class, 'mostrarProducto'])->name('productos.show');
+
 // Ruta Libros
 
 Route::get('/productos/libros', function () {
     return view('/Productos/libros');
 })->name('libros');
 
-//Ruta Jovenes Hechiceras
-
-Route::get('/productos/libros/hechiceras', function () {
-    return view('/Productos/libros/librohechiceras');
-})->name('hechiceras');
-
-//Ruta Tarot Guia Personal
-
-Route::get('/productos/libros/tarot', function () {
-    return view('/Productos/libros/librotarot');
-})->name('tarot');
-
-//Ruta The Eye in Ur Hand
-
-Route::get('/productos/libros/eye', function () {
-    return view('/Productos/libros/libroeye');
-})->name('eye');
 
 //Ruta Aromaticos
 
@@ -60,29 +46,11 @@ Route::get('/productos/aromaticos', function () {
     return view('/Productos/aromaticos');
 })->name('aromaticos');
 
-// Ruta Velas Pacificadoras
-
-Route::get('/productos/aromaticos/velas', function () {
-    return view('/Productos/aromaticos/aromavelas');
-})->name('velas');
-
-//Ruta Perlas Aromaticas
-
-Route::get('/productos/aromaticos/perlas', function () {
-    return view('/Productos/aromaticos/aromaperlas');
-})->name('perlas');
-
 //Ruta Otros
 
 Route::get('/productos/otros', function () {
     return view('/Productos/otros');
 })->name('otros');
-
-//Agua de Afrodita
-
-Route::get('/productos/otros/agua', function () {
-    return view('/Productos/otros/otrosagua');
-})->name('agua');
 
 // Ruta Misión
 Route::get('/nosotros/mision', function () {
@@ -171,4 +139,13 @@ Route::post('/users/{id}/remove-role', [RoleController::class, 'removeRole'])->n
 // Ruta para mostrar todos los usuarios con sus roles
 
 Route::get('/users/roles', [RoleController::class, 'showUsersWithRoles'])->name('users.roles');
+
+use App\Http\Controllers\UserController;
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/assign-roles', [UserController::class, 'showAssignRoles'])->name('assign.roles');
+    Route::post('/assign-role/{userId}', [UserController::class, 'assignRole'])->name('assign.role');
+    Route::post('/remove-role/{id}', [UserController::class, 'removeRole'])->name('remove.role');
+    Route::delete('/delete-user/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
+});
 
