@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ContactoController;
 
 
 /*
@@ -71,6 +72,8 @@ Route::get('/nosotros/valores', function () {
 Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
+
+Route::post('/contacto/enviar', [ContactoController::class, 'enviarFormulario'])->name('contacto.enviar');
 
 // Ruta Nosotros
 Route::get('/nosotros', function () {
