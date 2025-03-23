@@ -12,6 +12,7 @@ body {
     background: #e4dce9 no-repeat;
     background-size: cover;
     background-position: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /*-------------------- HEADER  -----------------------*/
@@ -1008,4 +1009,203 @@ h1 {
 .btn-cancelar:hover {
     background: #c43d1a;
     box-shadow: 0 2px 8px rgba(228, 77, 38, 0.3);
+}
+
+/* Botón Modo Oscuro */
+.dark-mode-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* Modo Oscuro */
+.dark-mode {
+    background-color: #222;
+    color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .header {
+    background-color: black;
+    transition: background-color 0.5s ease;
+}
+
+.dark-mode a {
+    color: #ddd;
+    transition: color 0.5s ease;
+}
+
+.dark-mode .sidebar {
+    background-color: #444;
+    transition: background-color 0.5s ease;
+}
+
+/* Ajuste del texto del carrusel en modo oscuro */
+.dark-mode .swiper-slide {
+    color: inherit; /* Mantén el color original del carrusel */
+    transition: none; /* Sin transición para evitar cambios no deseados */
+}
+
+.dark-mode .swiper-slide h2, 
+.dark-mode .swiper-slide p {
+    color: inherit; /* Mantén el color original del texto */
+    transition: none;
+}
+
+/* Cambiar el color del carrusel en modo oscuro */
+.dark-mode .swiper-slide {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .swiper-slide h2, 
+.dark-mode .swiper-slide p {
+    color: #fff; /* Asegúrate de que el texto sea visible */
+    transition: color 0.5s ease;
+}
+
+/* Cambios en el modo oscuro */
+
+/* Footer de morado a negro */
+.dark-mode .footernav {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Barra de búsqueda de morado a gris */
+.dark-mode .search-box {
+    background: #555; /* Fondo gris */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra más oscura */
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.dark-mode .search-box .form-control {
+    color: #fff; /* Texto blanco */
+    transition: color 0.5s ease;
+}
+
+.dark-mode .search-box .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder blanco con opacidad */
+}
+
+/* Menús desplegables de morado a gris */
+.dark-mode .navert {
+    background: #666; /* Fondo gris */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .navert li a {
+    color: #fff; /* Texto blanco */
+    transition: color 0.5s ease;
+}
+
+.dark-mode .navert li a:hover {
+    background: #444; /* Fondo gris oscuro al pasar el cursor */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Cambiar la línea morada a blanca en el modo oscuro con animación */
+.dark-mode .navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff; /* Cambia la línea a blanca */
+    transition: width 0.5s ease, background 0.5s ease;
+}
+
+.dark-mode .navbar a:hover::before {
+    width: 100%; /* Mantén la animación al pasar el cursor */
+}
+
+/* Cambiar el menú desplegable de "Libros" a gris en el modo oscuro */
+.dark-mode .navert {
+    background: #666; /* Fondo gris */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .navert li a {
+    color: #fff; /* Texto blanco */
+    transition: color 0.5s ease;
+}
+
+.dark-mode .navert li a:hover {
+    background: #444; /* Fondo gris oscuro al pasar el cursor */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Cambiar el submenú de "Libros" a gris en el modo oscuro */
+.dark-mode .subnav {
+    background: #666; /* Fondo gris */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .subnav li a {
+    color: #fff; /* Texto blanco */
+    transition: color 0.5s ease;
+}
+
+.dark-mode .subnav li a:hover {
+    background: #444; /* Fondo gris oscuro al pasar el cursor */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Breadcrumbs en modo oscuro */
+.dark-mode .breadcrumb {
+    background-color: #333; /* Fondo gris oscuro */
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+}
+
+.dark-mode .breadcrumb-item {
+    color: #fff; /* Texto blanco para los breadcrumbs */
+    transition: color 0.5s ease;
+}
+
+.dark-mode .breadcrumb-item a {
+    color: #fff; /* Links blancos */
+    text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+.dark-mode .breadcrumb-item a:hover {
+    color: #ddd; /* Color más claro al pasar el cursor */
+}
+
+.dark-mode .breadcrumb-item.active {
+    color: #e83e8c; /* Mantén el color original del breadcrumb activo */
+    font-weight: bold;
+    transition: color 0.5s ease;
+}
+
+/* Menú hamburguesa en modo oscuro */
+.dark-mode .sidebar {
+    background: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .sidebar a {
+    color: #fff; /* Texto blanco */
+    transition: color 0.5s ease, background 0.5s ease;
+}
+
+.dark-mode .sidebar a:hover {
+    background: #fff; /* Fondo blanco al pasar el cursor */
+    color: #000; /* Texto negro al pasar el cursor */
+    border-radius: 30px; /* Bordes redondeados */
+    transition: background 0.5s ease, color 0.5s ease;
 }
