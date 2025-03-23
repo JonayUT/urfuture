@@ -13,7 +13,7 @@
         
         <div class="input-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" placeholder="User">
+            <input type="text" class="input-field" id="reg_user" placeholder="User">
         </div>
 
         <div class="input-box">
@@ -41,7 +41,7 @@
         <div class="input-box" id="btn">
            <a href="/"> 
            <i class="bx bx-lock-alt"></i>
-           <input type="submit" class="submit" value="Register"></a>
+           <input type="submit" class="submit" id="registro" value="Register"></a>
         </div>
 
         <!-- Opciones: Recordarme y Términos -->
@@ -55,4 +55,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')     
+
+<script src="{{ asset('js/validation_alerts.js') }}"></script>   
+
 @endsection
