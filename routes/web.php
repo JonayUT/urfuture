@@ -156,3 +156,20 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 use App\Http\Controllers\ErrorController;
 
 Route::get('/error-404', [ErrorController::class, 'error404'])->name('error.404');
+
+// --------------- Ruta para control de roles --------------------
+
+use App\Http\Controllers\RoleController;
+
+// Ruta para mostrar el formulario de asignación de roles
+Route::get('/users/{id}/roles', [RoleController::class, 'showRoleAssignmentForm'])->name('roles.form');
+
+// Ruta para asignar un rol a un usuario
+Route::post('/users/{userId}/roles', [RoleController::class, 'assignRole'])->name('assign.role');
+
+// Ruta para eliminar un rol de un usuario
+Route::post('/users/{id}/remove-role', [RoleController::class, 'removeRole'])->name('remove.role');
+
+// Ruta para mostrar todos los usuarios con sus roles
+
+Route::get('/users/roles', [RoleController::class, 'showUsersWithRoles'])->name('users.roles');
