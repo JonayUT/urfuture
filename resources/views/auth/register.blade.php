@@ -13,36 +13,35 @@
         
         <div class="input-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" id="reg_user" placeholder="User">
+            <input type="text" class="input-field" id="reg_usuario" placeholder="User">
         </div>
 
         <div class="input-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" placeholder="Firstname">
+            <input type="text" class="input-field" id="reg_nombre" placeholder="Firstname">
         </div>
 
         <div class="input-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" placeholder="Lastname">
+            <input type="text" class="input-field" id="reg_apellido"  placeholder="Lastname">
         </div>
 
         <!-- Email y Password en filas separadas -->
         <div class="input-box">
             <i class="bx bx-envelope"></i>
-            <input type="text" class="input-field" placeholder="Email">
+            <input type="text" class="input-field" id="reg_correo"  placeholder="Email">
         </div>
 
         <div class="input-box">
             <i class="bx bx-lock-alt"></i>
-            <input type="password" class="input-field" placeholder="Password">
+            <input type="password" class="input-field" id="reg_password" placeholder="Password">
         </div>
 
         <!-- Botón de registro -->
         <div class="input-box" id="btn">
-           <a href="/"> 
            <i class="bx bx-lock-alt"></i>
            <input type="submit" class="submit" id="registro" value="Register"></a>
-        </div>
+        </div> 
 
         <!-- Opciones: Recordarme y Términos -->
         <div class="two-col">
