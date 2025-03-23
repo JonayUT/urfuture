@@ -8,12 +8,12 @@
     <div class="login-box">
         <form action="submit" id="loginForm">
             <div class="user-box">
-                <input type="text" name="usuario" id="usuario" required>
+                <input type="text" name="usuario" id="log_usuario" required>
                 <label for="">Usuario</label>
             </div>
 
             <div class="user-box">
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" id="log_password" required>
                 <label for="">Contraseña</label>
             </div>
 
@@ -22,7 +22,9 @@
                 Recordar contraseña
             </div>
             
-            <input class="btn-log" type="button" id="inicio" placeholder="INICIO">
+            <button class="btn-log" type="button" id="log_inicio" >
+                INICIO
+            </button>
             
         </form>
     </div>

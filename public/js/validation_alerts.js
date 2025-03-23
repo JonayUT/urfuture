@@ -3,10 +3,10 @@
 /* LOGIN */
 
 
-$('#inicio').click(function(event){
+$('#log_inicio').click(function(event){
     var usuario, psw, expPsw;
-    usuario = $('#usuario').val()
-    psw = $('#password').val()
+    usuario = $('#log_usuario').val()
+    psw = $('#log_password').val()
     expPsw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
 
     if(usuario.length == 0 || psw.length == 0){
@@ -28,7 +28,16 @@ $('#inicio').click(function(event){
         title: "Inicio de Sesion Completado!",
         icon: "success",
         draggable: true
-      });
+    }).then((result)=>{ 
+      if(result.isConfirmed){
+        window.location.href="/";
+      }
+    });
 })
+
+
+/* REGISTRO */
+
+
 
 
