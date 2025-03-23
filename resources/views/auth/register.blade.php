@@ -3,56 +3,40 @@
 @section('title', 'Registro')
 
 @section('content')
-    <div class="register-container" id="register">
-        <div class="top">
-            <span>¿Ya tienes una cuenta? <a href="/login" onclick="login()">Iniciar Sesión</a></span>
-            <header>Regístrate</header>
+<div class="register-box">
+    <form id="registerForm" action="{{ route('register') }}" method="POST">
+        @csrf
+        <div class="user-box">
+            <input type="text" name="username" id="username" required>
+            <label for="username">Nombre de usuario</label>
         </div>
+        <div class="user-box">
+            <input type="text" name="name" id="name" required>
+            <label for="name">Nombre</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="lastname" id="lastname" required>
+            <label for="lastname">Apellido</label>
+        </div>
+        <div class="user-box">
+            <input type="email" name="email" id="email" required>
+            <label for="email">Correo electrónico</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="password" id="password" required>
+            <label for="password">Contraseña</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="password_confirmation" id="password_confirmation" required>
+            <label for="password_confirmation">Confirmar contraseña</label>
+        </div>
+        <button type="submit" class="btn-register">Registrarse</button>
+    </form>
+</div>
+@endsection
 
-        <!-- Agrupamos Firstname y Lastname en una fila -->
-        
-        <div class="input-box">
-            <i class="bx bx-user"></i>
-            <input type="text" class="input-field" placeholder="User">
-        </div>
+@section('scripts')     
 
-        <div class="input-box">
-            <i class="bx bx-user"></i>
-            <input type="text" class="input-field" placeholder="Firstname">
-        </div>
+<script src="{{ asset('js/validation_alerts.js') }}"></script>   
 
-        <div class="input-box">
-            <i class="bx bx-user"></i>
-            <input type="text" class="input-field" placeholder="Lastname">
-        </div>
-
-        <!-- Email y Password en filas separadas -->
-        <div class="input-box">
-            <i class="bx bx-envelope"></i>
-            <input type="text" class="input-field" placeholder="Email">
-        </div>
-
-        <div class="input-box">
-            <i class="bx bx-lock-alt"></i>
-            <input type="password" class="input-field" placeholder="Password">
-        </div>
-
-        <!-- Botón de registro -->
-        <div class="input-box" id="btn">
-           <a href="/"> 
-           <i class="bx bx-lock-alt"></i>
-           <input type="submit" class="submit" value="Register"></a>
-        </div>
-
-        <!-- Opciones: Recordarme y Términos -->
-        <div class="two-col">
-            <div class="one">
-                <input type="checkbox" id="register-check">
-                <label for="register-check">Recordarme</label>
-            </div>
-            <div class="two">
-                <label><a href="#">Términos y condiciones.</a></label>
-            </div>
-        </div>
-    </div>
 @endsection
