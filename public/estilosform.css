@@ -212,11 +212,19 @@ header {
     color: white;
 }*/
 
+.btn-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: -25px;
+    margin-bottom: 20px;
+}	
+
 .btn-register{
-    margin: 0 auto;
     position: relative;
     display: inline-block;
-    padding: 10px 120px;
+    padding: 10px 0 120px 0;
     color: rgb(0, 0, 0);
     font-size: 16px;
     background-color: white;
@@ -235,15 +243,6 @@ header {
     color: white;
 
 }
-
-.submit:hover {
-    background-color: transparent;
-    color: white;
-    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
-}
-
-
-
 
 /* "Remember me" y "Términos" */
 .two-col {

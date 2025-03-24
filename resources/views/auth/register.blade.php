@@ -15,36 +15,35 @@
 
         <!-- Agrupamos Firstname y Lastname en una fila -->
         
-        <div class="input-box">
+        <div class="user-box">
             <i class="bx bx-user"></i>
             <input type="text" class="input-field" id="reg_usuario" placeholder="User">
         </div>
 
-        <div class="input-box">
+        <div class="user-box">
             <i class="bx bx-user"></i>
             <input type="text" class="input-field" id="reg_nombre" placeholder="Firstname">
         </div>
 
-        <div class="input-box">
+        <div class="user-box">
             <i class="bx bx-user"></i>
             <input type="text" class="input-field" id="reg_apellido"  placeholder="Lastname">
         </div>
 
         <!-- Email y Password en filas separadas -->
-        <div class="input-box">
+        <div class="user-box">
             <i class="bx bx-envelope"></i>
             <input type="text" class="input-field" id="reg_correo"  placeholder="Email">
         </div>
 
-        <div class="input-box">
+        <div class="user-box">
             <i class="bx bx-lock-alt"></i>
             <input type="password" class="input-field" id="reg_password" placeholder="Password">
         </div>
 
         <!-- Botón de registro -->
-        <div class="input-box" id="btn">
-           <i class="bx bx-lock-alt"></i>
-           <input type="submit" class="submit" id="registro" value="Register"></a>
+        <div class="btn-box">
+           <input type="submit" class="btn-log" id="registro" value="Register"></a>
         </div> 
 
        
