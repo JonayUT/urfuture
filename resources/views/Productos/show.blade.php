@@ -8,33 +8,32 @@
     {{ Breadcrumbs::render('producto', $producto) }}
     <!-- --------- -->
 
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{{ $producto->Imagen }}" alt="{{ $producto->Nombre }}" class="img-fluid rounded">
+    <div>
+        <div class="producto">
+            <img src="{{ $producto->Imagen }}" alt="{{ $producto->Nombre }}" >
+            <h1>{{ $producto->Nombre }}</h1>
+            <p><strong>Descripción:</strong> {{ $producto->Descripcion }}</p>
+            <p><strong>Precio:</strong> ${{ number_format($producto->Precio, 2) }}</p>
+            <p><strong>Categoría:</strong> {{ $producto->Tipo }}</p>
+            <a href="{{ route('productos') }}">Volver a la tienda</a>
+        
+            @auth
+                @if(Auth::user()->hasRole('admin'))
+                <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
+                    onsubmit="return confirmarEliminacion(event, this)">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                </form> 
+                @endif
+                @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
+                <button class="btn-editar"
+                    onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Imagen }}','{{ $producto->Precio }}', '{{ $producto->Tipo }}')">
+                    Editar
+                </button>
+                @endif
+            @endauth
         </div>
-        <div class="col-md-6">
-            <h1 class="display-4">{{ $producto->Nombre }}</h1>
-            <p class="lead"><strong>Descripción:</strong> {{ $producto->Descripcion }}</p>
-            <p class="h4"><strong>Precio:</strong> ${{ number_format($producto->Precio, 2) }}</p>
-            <p class="h5"><strong>Categoría:</strong> {{ $producto->Tipo }}</p>
-            <a href="{{ route('productos') }}" class="btn btn-primary mt-3">Volver a la tienda</a>
-        </div>
-        @auth
-            @if(Auth::user()->hasRole('admin'))
-            <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
-                onsubmit="return confirmarEliminacion(event, this)">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn-eliminar">Eliminar</button>
-            </form> 
-            @endif
-            @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
-            <button class="btn-editar"
-                onclick="mostrarModal('{{ $producto->_id }}', '{{ $producto->Nombre }}', '{{ $producto->Descripcion }}', '{{ $producto->Imagen }}','{{ $producto->Precio }}', '{{ $producto->Tipo }}')">
-                Editar
-            </button>
-            @endif
-        @endauth
     </div>
 </div>
 <!-- Modal para editar producto -->
