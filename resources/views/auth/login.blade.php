@@ -5,7 +5,7 @@
 @section('content')
 <div class="login-box">
 
-    <div class="top">   
+    <div class="top">
         <span>¿No tienes una cuenta? <a href="/register" onclick="register()">Registrate</a></span>
         <header>Inicia Sesión</header>
     </div>
@@ -26,8 +26,14 @@
             <input type="checkbox" name="remember" id="remember">
             <label for="remember">Recordar contraseña</label>
         </div>
-        
+
+        <div class="forgot-password">
+            <a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
+        </div>
+
+
         <button type="submit" class="btn-log" id="log_inicio">INICIO</button>
+
     </form>
 </div>
 @endsection
@@ -48,11 +54,11 @@
                 <input type="checkbox">
                 Recordar contraseña
             </div>
-            
+
             <button class="btn-log" type="button" id="log_inicio" >
                 INICIO
             </button>
-            
+
         </form>
     </div> -->
 
@@ -105,5 +111,3 @@
     });
 </script>
 @endsection
-
-

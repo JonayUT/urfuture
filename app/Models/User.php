@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Model implements AuthenticatableContract
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use HasApiTokens, Notifiable, Authenticatable;
+    use HasApiTokens, Notifiable, Authenticatable, CanResetPassword;
 
     protected $collection = 'users';
 

@@ -1,9 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 
 /*
@@ -16,6 +23,15 @@ use App\Http\Controllers\ContactoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 // Ruta Inicio
 Route::get('/', function () {
@@ -96,8 +112,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // -------------- Ruta para el mapa de sitio -----------------
 
-use App\Http\Controllers\MenuController;
-
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 // --------------- Ruta para el error 404 --------------------
@@ -106,8 +120,6 @@ use App\Http\Controllers\ErrorController;
 Route::get('/error-404', [ErrorController::class, 'error404'])->name('error.404');
 
 // --------------- Ruta para control de roles --------------------
-
-use App\Http\Controllers\RoleController;
 
 // Ruta para mostrar el formulario de asignación de roles
 Route::get('/users/{id}/roles', [RoleController::class, 'showRoleAssignmentForm'])->name('roles.form');
@@ -122,12 +134,9 @@ Route::post('/users/{id}/remove-role', [RoleController::class, 'removeRole'])->n
 
 Route::get('/users/roles', [RoleController::class, 'showUsersWithRoles'])->name('users.roles');
 
-use App\Http\Controllers\UserController;
-
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/assign-roles', [UserController::class, 'showAssignRoles'])->name('assign.roles');
     Route::post('/assign-role/{userId}', [UserController::class, 'assignRole'])->name('assign.role');
     Route::post('/remove-role/{id}', [UserController::class, 'removeRole'])->name('remove.role');
     Route::delete('/delete-user/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
 });
-
