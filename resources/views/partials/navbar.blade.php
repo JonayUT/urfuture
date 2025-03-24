@@ -75,8 +75,19 @@
     <a href="{{ route('productos') }}">Productos</a>
     <a href="{{ route('testimonios') }}">Testimonios</a>
     <a href="{{ route('contacto') }}">Contacto</a>
+    @auth
+    <a href="{{ route('perfil') }}">Mi Perfil</a>
+    @if(Auth::user()->hasRole('admin'))
+    <a href="{{ route('users.roles') }}">Usuarios/Roles</a>
+    @endif
+    <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Cerrar Sesión</a>
+    @else
     <a href="{{ route('login') }}">Iniciar Sesión</a>
     <a href="{{ route('register') }}">Registrarse</a>
+    @endauth
 </div>
 
 <!-- Fondo difuminado -->
