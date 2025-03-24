@@ -12,27 +12,42 @@
             <header>Regístrate</header>
         </div>
 
-        <div class="user-box">
-            <input type="text" name="username" id="username" placeholder="Nombre de Usuario" required>
+
+        <!-- Agrupamos Firstname y Lastname en una fila -->
+        
+        <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" id="reg_usuario" placeholder="User">
         </div>
-        <div class="user-box">
-            <input type="text" name="name" id="name" placeholder="Nombre" required>
+
+        <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" id="reg_nombre" placeholder="Firstname">
         </div>
-        <div class="user-box">
-            <input type="text" name="lastname" id="lastname" placeholder="Apellido" required>
+
+        <div class="input-box">
+            <i class="bx bx-user"></i>
+            <input type="text" class="input-field" id="reg_apellido"  placeholder="Lastname">
         </div>
-        <div class="user-box">
-            <input type="email" name="email" id="email" placeholder="Correo Electronico" required>
+
+        <!-- Email y Password en filas separadas -->
+        <div class="input-box">
+            <i class="bx bx-envelope"></i>
+            <input type="text" class="input-field" id="reg_correo"  placeholder="Email">
         </div>
-        <div class="user-box">
-            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+
+        <div class="input-box">
+            <i class="bx bx-lock-alt"></i>
+            <input type="password" class="input-field" id="reg_password" placeholder="Password">
         </div>
-        <div class="user-box">
-            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmar Contraseña" required>
-        </div>
-        <div class="user-box">
-            <button type="submit" class="btn-register">Registrarse</button>
-        </div>
+
+        <!-- Botón de registro -->
+        <div class="input-box" id="btn">
+           <i class="bx bx-lock-alt"></i>
+           <input type="submit" class="submit" id="registro" value="Register"></a>
+        </div> 
+
+       
 
         <div class="two-col">
             <div class="one">
