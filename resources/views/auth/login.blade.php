@@ -4,6 +4,12 @@
 
 @section('content')
 <div class="login-box">
+
+    <div class="top">   
+        <span>¿No tienes una cuenta? <a href="/register" onclick="register()">Registrate</a></span>
+        <header>Inicia Sesión</header>
+    </div>
+
     <form id="loginForm" action="{{ route('login') }}" method="POST">
         @csrf
         <div class="user-box">
@@ -25,6 +31,30 @@
     </form>
 </div>
 @endsection
+
+<!-- <div class="login-box">
+        <form action="submit" id="loginForm">
+            <div class="user-box">
+                <input type="text" name="usuario" id="log_usuario" required>
+                <label for="">Usuario</label>
+            </div>
+
+            <div class="user-box">
+                <input type="password" name="password" id="log_password" required>
+                <label for="">Contraseña</label>
+            </div>
+
+            <div class="remember">
+                <input type="checkbox">
+                Recordar contraseña
+            </div>
+            
+            <button class="btn-log" type="button" id="log_inicio" >
+                INICIO
+            </button>
+            
+        </form>
+    </div> -->
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -75,3 +105,5 @@
     });
 </script>
 @endsection
+
+

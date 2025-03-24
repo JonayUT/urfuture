@@ -91,9 +91,7 @@ Route::get('/descubre', function () {
 })->name('descubre');
 
 // Ruta Perfil
-Route::get('/perfil', function () {
-    return view('perfil');
-})->name('perfil');
+Route::get('/perfil', [AuthController::class, 'perfil'])->name('perfil')->middleware('auth');
 
 // Ruta Compras
 Route::get('/compras', function () {

@@ -13,7 +13,6 @@ body {
 }
 
 
-
 .login-box{
     position: absolute;
     top: 50%;
@@ -55,12 +54,11 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px 0;
+    padding: 20px 0 0 20px;
     font-size: 20px;
     color: white;
     pointer-events: none;
     transition: 0.5s ease;
-
 }
 
 .login-box .user-box input:focus ~ label,
@@ -109,7 +107,7 @@ body {
     top: 50%;
     left: 50%;
     width: 500px;
-    padding: 50px;
+    padding: 10px;
     transform: translate(-50%, -50%);
     background-color: rgba(67, 30, 2, 0.589);
     backdrop-filter: blur(20px);
@@ -132,17 +130,18 @@ header {
 .top span {
     color: white;
     font-size: 20px;
-    text-align: center;
+    margin-left: 20px;
 }
 
 .top span a {
     font-weight: 500;
     color: white;
-    margin-left: 15px;
+    margin-left: 30px;
+    text-align: center;
 }
 
 /* Campos de entrada */
-.input-box {
+.user-box {
     display: flex;
     justify-content: center; /* Centra los elementos horizontalmente */
     align-items: center; /* Centra verticalmente */
@@ -152,7 +151,7 @@ header {
 }
 
 
-.input-box input {
+.user-box input {
     font-size: 20px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
@@ -167,12 +166,12 @@ header {
 }
 
 /* Placeholder en color blanco */
-.input-box input::placeholder {
+.user-box input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
 /* Íconos dentro de los inputs */
-.input-box i {
+.user-box i {
     position: absolute;
     left: 20px;
     top: 50%;
@@ -182,8 +181,8 @@ header {
 
 
 /* Efecto hover en inputs */
-.input-box input:hover,
-.input-box input:focus {
+.user-box input:hover,
+.user-box input:focus {
     background: rgba(255, 255, 255, 0.25);
 }
 
@@ -213,6 +212,29 @@ header {
     color: white;
 }*/
 
+.btn-register{
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    padding: 10px 120px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    background-color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s ease;
+    letter-spacing: 4px ;
+    border:  2px solid white;
+    justify-content: center;
+}
+
+.btn-register:hover{
+    background-color: transparent;
+    color: white;
+
+}
 
 .submit:hover {
     background-color: transparent;

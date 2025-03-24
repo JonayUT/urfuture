@@ -68,8 +68,8 @@ Breadcrumbs::for('nosotros', function (BreadcrumbTrail $trail) {
 
 // Perfil
 Breadcrumbs::for('perfil', function (BreadcrumbTrail $trail) {
-    $trail->parent('inicio');
-    $trail->push('Perfil', route('perfil'));
+    $trail->parent('inicio'); // Define el breadcrumb padre como "Inicio"
+    $trail->push('Perfil', route('perfil')); // Asegúrate de que la ruta 'perfil' esté definida
 });
 
 // Testimonios

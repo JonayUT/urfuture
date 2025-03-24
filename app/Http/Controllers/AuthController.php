@@ -61,5 +61,17 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function perfil()
+    {
+        // Obtener el usuario autenticado
+        $user = auth()->user();
+
+        // Pasar los datos del usuario a la vista
+        return view('perfil', [
+            'activeSection' => 'Perfil',
+            'user' => $user,
+        ]);
+    }
 }
 
