@@ -179,6 +179,11 @@
         event.preventDefault();
         if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
             form.submit();
+            Swal.fire({
+                icon: "error",
+                title: "PRODUCTO ELIMINADO",
+            });
+            return false;
         }
     }
 
@@ -195,6 +200,7 @@
             }
         });
     });
+
 </script>
 <!-- Fin editar productos -->
 

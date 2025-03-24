@@ -2,6 +2,7 @@
 
 @section('title', 'Detalles del Producto')
 
+
 @section('content')
 <div class="container mt-5">
     <!-- Breadcrumbs -->
@@ -87,13 +88,19 @@
     function cerrarModal() {
         document.getElementById('modalEditar').style.display = 'none';
     }
-
+ 
     function confirmarEliminacion(event, form) {
         event.preventDefault();
         if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
             form.submit();
+            Swal.fire({
+                icon: "error",
+                title: "PRODUCTO ELIMINADO",
+            });
+            return false;
         }
-    }
+    } 
+
 </script>
 <!-- Fin editar productos -->
 @endsection
