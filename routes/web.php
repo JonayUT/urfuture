@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ContactoController;
 
 
 /*
@@ -22,7 +23,8 @@ Route::get('/', function () {
 })->name('inicio');
 
 // Ruta Productos
-Route::get('/productos', [ProductosController::class, 'show'])->name('productos');
+Route::get('/productos', [ProductosController::class, 'index'])->name('productos');
+Route::get('/productos/categoria/{categoria}', [ProductosController::class, 'filtrarPorCategoria'])->name('productos.categoria');
 
 Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
 
@@ -30,59 +32,16 @@ Route::put('/productos/{id}', [ProductosController::class, 'update'])->name('pro
 
 Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
+Route::get('/productos/{id}', [ProductosController::class, 'mostrarProducto'])->name('productos.show');
+
 // Ruta Libros
+Route::get('/productos/libros', [ProductosController::class, 'filtrarPorCategoria'])->name('libros')->defaults('categoria', 'Libros');
 
-Route::get('/productos/libros', function () {
-    return view('/Productos/libros');
-})->name('libros');
+// Ruta Aromaticos
+Route::get('/productos/aromaticos', [ProductosController::class, 'filtrarPorCategoria'])->name('aromaticos')->defaults('categoria', 'Aromaticos');
 
-//Ruta Jovenes Hechiceras
-
-Route::get('/productos/libros/hechiceras', function () {
-    return view('/Productos/libros/librohechiceras');
-})->name('hechiceras');
-
-//Ruta Tarot Guia Personal
-
-Route::get('/productos/libros/tarot', function () {
-    return view('/Productos/libros/librotarot');
-})->name('tarot');
-
-//Ruta The Eye in Ur Hand
-
-Route::get('/productos/libros/eye', function () {
-    return view('/Productos/libros/libroeye');
-})->name('eye');
-
-//Ruta Aromaticos
-
-Route::get('/productos/aromaticos', function () {
-    return view('/Productos/aromaticos');
-})->name('aromaticos');
-
-// Ruta Velas Pacificadoras
-
-Route::get('/productos/aromaticos/velas', function () {
-    return view('/Productos/aromaticos/aromavelas');
-})->name('velas');
-
-//Ruta Perlas Aromaticas
-
-Route::get('/productos/aromaticos/perlas', function () {
-    return view('/Productos/aromaticos/aromaperlas');
-})->name('perlas');
-
-//Ruta Otros
-
-Route::get('/productos/otros', function () {
-    return view('/Productos/otros');
-})->name('otros');
-
-//Agua de Afrodita
-
-Route::get('/productos/otros/agua', function () {
-    return view('/Productos/otros/otrosagua');
-})->name('agua');
+// Ruta Otros
+Route::get('/productos/otros', [ProductosController::class, 'filtrarPorCategoria'])->name('otros')->defaults('categoria', 'Otros');
 
 // Ruta Misión
 Route::get('/nosotros/mision', function () {
@@ -104,6 +63,8 @@ Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
+Route::post('/contacto/enviar', [ContactoController::class, 'enviarFormulario'])->name('contacto.enviar');
+
 // Ruta Nosotros
 Route::get('/nosotros', function () {
     return view('nosotros');
@@ -120,9 +81,7 @@ Route::get('/descubre', function () {
 })->name('descubre');
 
 // Ruta Perfil
-Route::get('/perfil', function () {
-    return view('perfil');
-})->name('perfil');
+Route::get('/perfil', [AuthController::class, 'perfil'])->name('perfil')->middleware('auth');
 
 // Ruta Compras
 Route::get('/compras', function () {
@@ -133,15 +92,13 @@ Route::get('/compras', function () {
 
 // Ruta Login
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Ruta Register
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 // Ruta Logout
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -173,3 +130,13 @@ Route::post('/users/{id}/remove-role', [RoleController::class, 'removeRole'])->n
 // Ruta para mostrar todos los usuarios con sus roles
 
 Route::get('/users/roles', [RoleController::class, 'showUsersWithRoles'])->name('users.roles');
+
+use App\Http\Controllers\UserController;
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/assign-roles', [UserController::class, 'showAssignRoles'])->name('assign.roles');
+    Route::post('/assign-role/{userId}', [UserController::class, 'assignRole'])->name('assign.role');
+    Route::post('/remove-role/{id}', [UserController::class, 'removeRole'])->name('remove.role');
+    Route::delete('/delete-user/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
+});
+

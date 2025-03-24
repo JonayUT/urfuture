@@ -17,15 +17,15 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'user' => 'required|string|max:25',
-            'password' => 'required|confirmed',
+            'usuario' => 'required|string|max:25',
+            'password' => 'required|string',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('perfil');
+        if (Auth::attempt(['username' => $credentials['usuario'], 'password' => $credentials['password']])) {
+            return response()->json(['success' => true]);
         }
 
-        return back()->withErrors(['email' => 'Credenciales incorrectas']);
+        return response()->json(['success' => false]);
     }
 
     public function showRegister()
@@ -35,23 +35,25 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-    
         $data = $request->validate([
+            'username' => 'required|string|max:25|unique:users',
             'name' => 'required|string|max:25',
             'lastname' => 'required|string|max:25',
             'email' => 'required|email|unique:users',
-            'password' => 'required|password|min:8|max:15|confirmed',
+            'password' => 'required|string|min:8|max:15|confirmed',
         ]);
 
-
         $user = User::create([
+            'username' => $data['username'],
             'name' => $data['name'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'roles' => ['viewer'], // Asignar el rol de "viewer"
         ]);
 
         Auth::login($user);
-        return redirect()->route('perfil');
+        return redirect()->route('inicio');
     }
 
     public function logout()
@@ -59,4 +61,17 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function perfil()
+    {
+        // Obtener el usuario autenticado
+        $user = auth()->user();
+
+        // Pasar los datos del usuario a la vista
+        return view('perfil', [
+            'activeSection' => 'Perfil',
+            'user' => $user,
+        ]);
+    }
 }
+

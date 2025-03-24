@@ -5,15 +5,56 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productos;
-use Symfony\Component\HttpFoundation\Response;
 
 class ProductosController extends Controller
 {
-    public function show()
+    public function index(Request $request)
     {
-        return view('productos', [
-            'productos' => Productos::all()
-        ]);
+        $query = Productos::query();
+
+        if ($request->filled('categoria')) {
+            $query->where('Tipo', $request->categoria);
+        }
+
+        if ($request->filled('precio_min')) {
+            $query->where('Precio', '>=', $request->precio_min);
+        }
+
+        if ($request->filled('precio_max')) {
+            $query->where('Precio', '<=', $request->precio_max);
+        }
+
+        if ($request->filled('buscar')) {
+            $query->where('Nombre', 'like', '%' . $request->buscar . '%');
+        }
+
+        $productos = $query->get();
+        $categorias = Productos::select('Tipo')->distinct()->get();
+
+        return view('productos', compact('productos', 'categorias'));
+    }
+
+    public function filtrarPorCategoria($categoria)
+    {
+        $productos = Productos::where('Tipo', $categoria)->get();
+        $categorias = Productos::select('Tipo')->distinct()->get();
+
+        switch ($categoria) {
+            case 'Libros':
+                return view('productos.libros', compact('productos', 'categorias', 'categoria'));
+            case 'Aromaticos':
+                return view('productos.aromaticos', compact('productos', 'categorias', 'categoria'));
+            case 'Otros':
+                return view('productos.otros', compact('productos', 'categorias', 'categoria'));
+            default:
+                return view('productos', compact('productos', 'categorias', 'categoria'));
+        }
+    }
+
+    public function mostrarProducto($id)
+    {
+        $producto = Productos::findOrFail($id);
+        return view('productos.show', compact('producto'));
     }
 
     public function store(Request $request)

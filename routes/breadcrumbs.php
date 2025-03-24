@@ -2,6 +2,7 @@
 
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+use App\Models\Productos;
 
 // Inicio
 Breadcrumbs::for('inicio', function (BreadcrumbTrail $trail) {
@@ -38,27 +39,6 @@ Breadcrumbs::for('libros', function (BreadcrumbTrail $trail) {
     $trail->push('Libros', route('libros'));
 });
 
-//Jovenes Hechiceras
-
-Breadcrumbs::for('hechiceras', function (BreadcrumbTrail $trail) {
-    $trail->parent('libros');
-    $trail->push('Jovenes Hechiceras', route('hechiceras'));
-});
-
-//Tarot Guia Personal
-
-Breadcrumbs::for('tarot', function (BreadcrumbTrail $trail) {
-    $trail->parent('libros');
-    $trail->push('Tarot Guia Personal', route('tarot'));
-});
-
-//The eye in ur hand
-
-Breadcrumbs::for('eye', function (BreadcrumbTrail $trail) {
-    $trail->parent('libros');
-    $trail->push('The eye in ur hand', route('eye'));
-});
-
 // Aromaticos
 
 Breadcrumbs::for('aromaticos', function (BreadcrumbTrail $trail) {
@@ -66,29 +46,12 @@ Breadcrumbs::for('aromaticos', function (BreadcrumbTrail $trail) {
     $trail->push('Aromaticos', route('aromaticos'));
 });
 
-//Velas Pacificadoras
-Breadcrumbs::for('velas', function (BreadcrumbTrail $trail) {
-    $trail->parent('aromaticos');
-    $trail->push('Velas Pacificadoras', route('velas'));
-});
-
-//Perlas Aromaticas
-Breadcrumbs::for('perlas', function (BreadcrumbTrail $trail) {
-    $trail->parent('aromaticos');
-    $trail->push('Perlas Aromaticas', route('perlas'));
-});
 
 // Otros
 
 Breadcrumbs::for('otros', function (BreadcrumbTrail $trail) {
     $trail->parent('productos');
     $trail->push('Otros', route('otros'));
-});
-
-// Agua de Afrodita
-Breadcrumbs::for('agua', function (BreadcrumbTrail $trail) {
-    $trail->parent('otros');
-    $trail->push('Agua de Afrodita', route('agua'));
 });
 
 // Contacto
@@ -105,8 +68,8 @@ Breadcrumbs::for('nosotros', function (BreadcrumbTrail $trail) {
 
 // Perfil
 Breadcrumbs::for('perfil', function (BreadcrumbTrail $trail) {
-    $trail->parent('inicio');
-    $trail->push('Perfil', route('perfil'));
+    $trail->parent('inicio'); // Define el breadcrumb padre como "Inicio"
+    $trail->push('Perfil', route('perfil')); // Asegúrate de que la ruta 'perfil' esté definida
 });
 
 // Testimonios
@@ -131,4 +94,10 @@ Breadcrumbs::for('compras', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('menu', function (BreadcrumbTrail $trail) {
     $trail->parent('inicio');
     $trail->push('Mapa del Sitio', route('menu'));
+});
+
+// Breadcrumb para un producto específico
+Breadcrumbs::for('producto', function (BreadcrumbTrail $trail, Productos $producto) {
+    $trail->parent('productos');
+    $trail->push($producto->Nombre, route('productos.show', $producto->_id));
 });

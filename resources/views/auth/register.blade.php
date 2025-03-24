@@ -3,11 +3,15 @@
 @section('title', 'Registro')
 
 @section('content')
-    <div class="register-container" id="register">
+<div class="register-container">
+    <form id="registerForm" action="{{ route('register') }}" method="POST">
+        @csrf
+
         <div class="top">
             <span>¿Ya tienes una cuenta? <a href="/login" onclick="login()">Iniciar Sesión</a></span>
             <header>Regístrate</header>
         </div>
+
 
         <!-- Agrupamos Firstname y Lastname en una fila -->
         
@@ -43,7 +47,8 @@
            <input type="submit" class="submit" id="registro" value="Register"></a>
         </div> 
 
-        <!-- Opciones: Recordarme y Términos -->
+       
+
         <div class="two-col">
             <div class="one">
                 <input type="checkbox" id="register-check">
@@ -53,7 +58,9 @@
                 <label><a href="#">Términos y condiciones.</a></label>
             </div>
         </div>
-    </div>
+
+    </form>
+</div>
 @endsection
 
 @section('scripts')     

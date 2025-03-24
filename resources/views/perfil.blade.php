@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Perfil')
+@section('title', $activeSection ?? 'Perfil')
 
 @section('content')
 
@@ -8,7 +8,10 @@
    {{ Breadcrumbs::render('perfil') }}
    <!-- --------- -->
 
-   <h1 class="neon-text">PERFIL</h1>
+   <h1 class="neon-text">{{ $activeSection ?? 'PERFIL' }}</h1>
 
+   <!-- Mostrar datos del usuario autenticado -->
+   <p>Usuario: {{ $user->name ?? 'Invitado' }}</p>
+   <p>Email: {{ $user->email ?? 'No disponible' }}</p>
 
-   @endsection
+@endsection
