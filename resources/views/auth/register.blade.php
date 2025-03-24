@@ -17,36 +17,39 @@
         
         <div class="user-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" id="reg_usuario" placeholder="User">
+            <input type="text" class="input-field" name="username" id="username" placeholder="Usuario" required>
         </div>
 
         <div class="user-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" id="reg_nombre" placeholder="Firstname">
+            <input type="text" class="input-field" name="name"  id="name" placeholder="Nombre" required>
         </div>
 
         <div class="user-box">
             <i class="bx bx-user"></i>
-            <input type="text" class="input-field" id="reg_apellido"  placeholder="Lastname">
+            <input type="text" class="input-field" name="lastname" id="lastname"  placeholder="Apellido" required>
         </div>
 
         <!-- Email y Password en filas separadas -->
         <div class="user-box">
             <i class="bx bx-envelope"></i>
-            <input type="text" class="input-field" id="reg_correo"  placeholder="Email">
+            <input type="text" class="input-field" name="email" id="email"  placeholder="Correo" required>
         </div>
 
         <div class="user-box">
             <i class="bx bx-lock-alt"></i>
-            <input type="password" class="input-field" id="reg_password" placeholder="Password">
+            <input type="password" class="input-field" name="password" id="password" placeholder="Contraseña" required>
+        </div>
+
+        <div class="user-box">
+            <i class="bx bx-lock-alt"></i>
+            <input type="password" class="input-field" name="password_confirmation" id="password_confirmation" placeholder="Confirma tu contraseña" required>
         </div>
 
         <!-- Botón de registro -->
-        <div class="btn-box">
-           <input type="submit" class="btn-log" id="registro" value="Register"></a>
+        <div class="user-box">
+           <input type="submit" class="btn-register" id="registro" value="Registro"></a>
         </div> 
-
-       
 
         <div class="two-col">
             <div class="one">

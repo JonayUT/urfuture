@@ -40,17 +40,18 @@ $('#log_inicio').click(function(event){
 
 $('#registro').click(function(event){
 
-  var nombre, apellido, correo, usuario, psw, expPsw, expCorreo;
-  nombre = $('#reg_nombre').val()
-  apellido = $('#reg_apellido').val()
-  correo = $('#reg_correo').val()
-  usuario = $('#reg_usuario').val()
-  psw = $('#reg_password').val()
+  var nombre, apellido, correo, usuario, psw, psw2, expPsw, expCorreo;
+  nombre = $('#name').val()
+  apellido = $('#lastname').val()
+  correo = $('#email').val()
+  usuario = $('#username').val()
+  psw = $('#password').val()
+  psw2 = $('#password_confirmation').val()
   expPsw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
   expCorreo = /\w+@\w+\.+[a-z]/;
 
 
-  if(nombre.length == 0 || apellido.length == 0 || correo.length == 0 || usuario.length == 0 || psw.length == 0){
+  if(nombre.length == 0 || apellido.length == 0 || correo.length == 0 || usuario.length == 0 || psw.length == 0 || psw2.length == 0){
       Swal.fire({
           title: "Datos Vacios",
           text: "Al parecer no llenaste todos los campos",
@@ -64,14 +65,20 @@ $('#registro').click(function(event){
           text: "El correo no es valido",
         });
       return false;
-  }
-  else if(!expPsw.test(psw)){
+  }else if(!expPsw.test(psw)){
       Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "La contraseña no cumple el formato",
         });
       return false;
+  }else if(psw != $('#password_confirmation').val()){
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Las contraseñas no coinciden",
+    });
+    return false;
   }
   Swal.fire({
       title: "Registro Completado!",
