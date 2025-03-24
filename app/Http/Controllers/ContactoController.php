@@ -21,6 +21,6 @@ class ContactoController extends Controller
         Mail::to('tic-300164@utnay.edu.mx')->send(new ContactoMailable($request->all()));
 
         // Redirigir con un mensaje de éxito
-        return redirect()->back()->with('success', '¡Tu mensaje ha sido enviado correctamente!');
+        return redirect()->back()->with('success', '¡Tu mensaje ha sido enviado correctamente a Chiapas Boy!');
     }
 }

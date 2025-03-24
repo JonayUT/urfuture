@@ -33,27 +33,6 @@ Breadcrumbs::for('productos', function (BreadcrumbTrail $trail) {
     $trail->push('Productos', route('productos'));
 });
 
-// Libros
-Breadcrumbs::for('libros', function (BreadcrumbTrail $trail) {
-    $trail->parent('productos');
-    $trail->push('Libros', route('libros'));
-});
-
-// Aromaticos
-
-Breadcrumbs::for('aromaticos', function (BreadcrumbTrail $trail) {
-    $trail->parent('productos');
-    $trail->push('Aromaticos', route('aromaticos'));
-});
-
-
-// Otros
-
-Breadcrumbs::for('otros', function (BreadcrumbTrail $trail) {
-    $trail->parent('productos');
-    $trail->push('Otros', route('otros'));
-});
-
 // Contacto
 Breadcrumbs::for('contacto', function (BreadcrumbTrail $trail) {
     $trail->parent('inicio');

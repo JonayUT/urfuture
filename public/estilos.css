@@ -748,27 +748,16 @@ h1 {
 
 /*-------------------- FILTRO BUSQUEDA PRODUCTOS  -----------------------*/
 
-filtros-busqueda {
+.filtros-busqueda {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
-    width: 50px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     .filtros-busqueda {
         display: none;
-    }
-    .row-productos
-    {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    .contenedor-productos
-    {
-        width: 100%;
-        margin-left: -235px;
     }
 }
 
@@ -786,7 +775,6 @@ filtros-busqueda {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: thistle;
     text-align: center;
 }
 
@@ -811,7 +799,6 @@ filtros-busqueda {
     }
 }
 
-
 /* Estilos de la tarjeta */
 .card {
     background: whitesmoke; /* Color de fondo suave */
@@ -820,6 +807,7 @@ filtros-busqueda {
     overflow: hidden;
     padding: 15px;
     text-align: center;
+    align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1249,4 +1237,40 @@ filtros-busqueda {
     color: #000; /* Texto negro al pasar el cursor */
     border-radius: 30px; /* Bordes redondeados */
     transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Modo oscuro para las cards de productos */
+.dark-mode .card {
+    background: #333; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5); /* Sombra más oscura */
+    transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.dark-mode .card:hover {
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.7); /* Sombra más oscura al pasar el cursor */
+}
+
+.dark-mode .card-title {
+    color: #ff83e0; /* Título en color rosado */
+}
+
+.dark-mode .card-text {
+    color: #ddd; /* Texto en color gris claro */
+}
+
+.dark-mode .card-text strong {
+    color: #ff83e0; /* Precio en color rosado */
+}
+
+.dark-mode .btn-card, .dark-mode .btn-eliminar, .dark-mode .btn-editar, .dark-mode #btnAgregarProducto {
+    background-color: #444; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    border: none;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .btn-card:hover, .dark-mode .btn-eliminar:hover, .dark-mode .btn-editar:hover, .dark-mode #btnAgregarProducto:hover {
+    background-color: #555; /* Fondo gris más claro al pasar el cursor */
+    color: #fff; /* Texto blanco */
 }
