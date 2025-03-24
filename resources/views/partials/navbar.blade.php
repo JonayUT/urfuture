@@ -27,17 +27,7 @@
 
         <div class="dropdown">
             <a href="{{ route('productos') }}">Productos</a>
-            <ul class="navert">
-                <li class="submenu">
-                    <a href="{{ route('libros') }}">Libros</a>
-                </li>
-                <li class="submenu">
-                    <a href="{{ route('aromaticos') }}">Aromáticos</a>
-                </li>
-                <li class="submenu">
-                    <a href="{{ route('otros') }}">Otros</a>
-                </li>
-            </ul>
+            
         </div>
 
         <a href="{{ route('testimonios') }}">Testimonios</a>

@@ -34,15 +34,6 @@ Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name(
 
 Route::get('/productos/{id}', [ProductosController::class, 'mostrarProducto'])->name('productos.show');
 
-// Ruta Libros
-Route::get('/productos/libros', [ProductosController::class, 'filtrarPorCategoria'])->name('libros')->defaults('categoria', 'Libros');
-
-// Ruta Aromaticos
-Route::get('/productos/aromaticos', [ProductosController::class, 'filtrarPorCategoria'])->name('aromaticos')->defaults('categoria', 'Aromaticos');
-
-// Ruta Otros
-Route::get('/productos/otros', [ProductosController::class, 'filtrarPorCategoria'])->name('otros')->defaults('categoria', 'Otros');
-
 // Ruta Misión
 Route::get('/nosotros/mision', function () {
     return view('mision');
