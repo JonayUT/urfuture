@@ -45,7 +45,9 @@ jobs:
         include:
         - language: actions
           build-mode: none
-        - language: javascript-typescript-php
+        - language: javascript-typescript
+          build-mode: none
+        - language: php  # Se agrega PHP como lenguaje
           build-mode: none
         # CodeQL supports the following values keywords for 'language': 'actions', 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
         # Use `c-cpp` to analyze code written in C, C++ or both
