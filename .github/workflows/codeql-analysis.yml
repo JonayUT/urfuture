@@ -1,92 +1,39 @@
-# For most projects, this workflow file will not need changing; you simply need
-# to commit it to your repository.
-#
-# You may wish to alter this file to override the set of languages analyzed,
-# or to provide custom queries or build logic.
-#
-# ******** NOTE ********
-# We have attempted to detect the languages in your repository. Please check
-# the `language` matrix defined below to confirm you have the correct set of
-# supported CodeQL languages.
-#
+name: "CodeQL Analysis"
 
-#NOMBRE DEL ARCHIVO
-name: "CodeQL Advanced"
-#EJECUCION DEL ANALISIS
 on:
-  #RAMAS EN LAS QUE SE EJECUTARA CUANDO SE HAGA UN PUSH
   push:
-    branches: [ "main" ]
-  #RAMAS EN LAS QUE SE EJECUTARA CUANDO SE HAGA UN PULL  
+    branches: [main, develop]
   pull_request:
-    branches: [ "main" ]
-  #  CRONOLOGIA DE EJECUCION ESTE CASO ES LOS VIERNES A LAS 8:40 AM
-  schedule:
-    - cron: '40 8 * * 5'
-#DEFINE LOS TRABAJOS QUE SE EJECUTARAN
+    branches: [main, develop]
+
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
-    #AMBIENTE EN EL QUE SE EJECUTARA
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'windows-latest' }}
-    
-    #DEFINICION DE PERMISOS
+    name: "Analyze"
+    runs-on: windows-latest
+
     permissions:
-      # PERMITE ESCRIBIR LOS EVENTOS DE SEGURIDAD
-      security-events: write
-      # REQUERIDO PARA ALCANZAR PAQUETES INTERNOS O PRIVADOS DE CODEQL
-      packages: read
-      #PUEDE LEER ACCIONES Y CODIGO DEL REPOSITORIO
       actions: read
       contents: read
-      
-    #LENGUAJES QUE SE ANALIZARAN
+      security-events: write
+
     strategy:
       fail-fast: false
       matrix:
-          language: [ 'javascript', 'php' ]
+        language: [ 'javascript', 'php' ]  # Laravel usa PHP y, a veces, JavaScript
 
-    #DESCARGA EL CODIGO DEL REPOSITORIO
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
 
-    # Add any setup steps before running the `github/codeql-action/init` action.
-    # This includes steps like installing compilers or runtimes (`actions/setup-node`
-    # or others). This is typically only required for manual builds.
-    # - name: Setup runtime (example)
-    #   uses: actions/setup-example@v1
+      - name: "Initialize CodeQL"
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
 
-    # INICIALIZA LAS HERRAMIENTAS CODEQL PARA SU EJECUCIÓN
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: ${{ matrix.language }}
-        build-mode: ${{ matrix.build-mode }}
-        # If you wish to specify custom queries, you can do so here or in a config file.
-        # By default, queries listed here will override any specified in a config file.
-        # Prefix the list here with "+" to use these queries and those in the config file.
+      - name: "Autobuild"
+        uses: github/codeql-action/autobuild@v3
 
-        # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
-        # queries: security-extended,security-and-quality
-
-    # If the analyze step fails for one of the languages you are analyzing with
-    # "We were unable to automatically build your code", modify the matrix above
-    # to set the build mode to "manual" for that language. Then modify this step
-    # to build your code.
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-    - if: matrix.build-mode == 'manual'
-      shell: bash
-      run: |
-        echo 'If you are using a "manual" build mode for one or more of the' \
-          'languages you are analyzing, replace this with the commands to build' \
-          'your code, for example:'
-        echo '  make bootstrap'
-        echo '  make release'
-        exit 1
-      #EJECUCION DEL ANALISIS
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
+      - name: "Run CodeQL Analysis"
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
