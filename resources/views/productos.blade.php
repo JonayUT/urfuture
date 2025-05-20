@@ -10,34 +10,7 @@
 <h1>Nuestra Tienda</h1>
 
 <div class="row-productos">
-    <!-- Filtros y búsqueda -->
-    <div class="filtros-busqueda">
-        <form action="{{ route('productos') }}" method="GET" class="form-filtros">
-            <div class="form-group">
-                <label for="categoria">Categoría</label>
-                <select name="categoria" id="categoria" class="form-control">
-                    <option value="">Todas</option>
-                    <option value="Libros" {{ request('categoria') == 'Libros' ? 'selected' : '' }}>Libros</option>
-                    <option value="Aromaticos" {{ request('categoria') == 'Aromaticos' ? 'selected' : '' }}>Aromaticos</option>
-                    <option value="Otros" {{ request('categoria') == 'Otros' ? 'selected' : '' }}>Otros</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="precio_min">Precio Mínimo</label>
-                <input type="number" name="precio_min" id="precio_min" class="form-control" value="{{ request('precio_min') }}" step="0.01">
-            </div>
-            <div class="form-group">
-                <label for="precio_max">Precio Máximo</label>
-                <input type="number" name="precio_max" id="precio_max" class="form-control" value="{{ request('precio_max') }}" step="0.01">
-            </div>
-            <div class="form-group">
-                <label for="buscar">Buscar</label>
-                <input type="text" name="buscar" id="buscar" class="form-control" value="{{ request('buscar') }}">
-            </div>
-            <button type="submit" class="btn-card">Filtrar</button>
-        </form>
-    </div>
-    <!-- Fin filtros y búsqueda -->
+    
 
     <div class="contenedor-productos">
         <div class="MostrarProductos">

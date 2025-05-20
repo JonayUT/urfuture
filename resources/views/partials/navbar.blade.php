@@ -5,11 +5,7 @@
     <!-- Logo -->
     <a href="{{ route('inicio') }}" class="logo">UrFuture</a>
 
-    <!-- Barra de búsqueda -->
-    <div class="search-box">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" class="form-control" id="searchInput" placeholder="Buscar..." aria-label="Buscar">
-    </div>
+   
 
 
     <!-- Modo Oscuro -->

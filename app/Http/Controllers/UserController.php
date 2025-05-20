@@ -12,8 +12,10 @@ class UserController extends Controller
         $user = User::findOrFail($userId);
         $role = $request->input('role');
 
-        if (!in_array($role, $user->roles)) {
-            $user->roles = array_merge($user->roles, [$role]);
+        $roles = $user->getAttribute('roles') ?? [];
+        if (!in_array($role, $roles)) {
+            $roles[] = $role;
+            $user->setAttribute('roles', $roles);
             $user->save();
         }
 
@@ -25,9 +27,11 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $role = $request->input('role');
 
-        if (($key = array_search($role, $user->roles)) !== false) {
-            unset($user->roles[$key]);
-            $user->roles = array_values($user->roles);
+        $roles = $user->getAttribute('roles') ?? [];
+        if (($key = array_search($role, $roles)) !== false) {
+            unset($roles[$key]);
+            $roles = array_values($roles);
+            $user->setAttribute('roles', $roles);
             $user->save();
         }
 
