@@ -7,11 +7,17 @@
 
 body {
    
-    background-image: url('/images/fondoestilo.jpg');  /* Cambia esto a la ruta de tu imagen */
+    background: linear-gradient(135deg, #6a0dad, #8e44ad, #b266ff);
     background-size: cover;
     
 }
 
+.forgot-password a{
+    color: rgb(221, 95, 246);
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+}
 
 .login-box{
     position: absolute;
@@ -116,6 +122,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 80%;
 }
 
 /* Encabezado */
@@ -323,10 +330,16 @@ header {
     }
 }
 
-@media (max-width: 1023px) and (min-width: 768px) {
+@media (max-width: 1024px) and (min-width: 767px) {
     .register-container {
         max-width: 90%;
         padding: 25px;
+    }
+
+    .login-box {
+        width: 600px;
+        height: 650px;
+        padding: 20px;
     }
 
     .input-field {
@@ -341,9 +354,36 @@ header {
         flex-direction: column;
         gap: 10px;
     }
+
+    .login-box .user-box label {
+        
+        font-size: x-large;
+        margin-left: 20px;
+    }
+
+    .top span{
+        font-size: 35px;
+    }
+
+    .top header{
+        font-size: 50px;
+    }
+
+    .forgot-password a{
+        font-size: 30px;
+    }
+
+    .remember label{
+        font-size: 25px;
+    }
 }
 
 @media (max-width: 670px) and (min-width: 500px) {
+
+    body{
+        height: 550px;
+    }
+
     .register-container {
         max-width: 95%;
         margin: 20px auto;
@@ -379,9 +419,9 @@ header {
     }
 
     .login-box {
-        margin-top: 100px;
         width: 90%;
-        padding: 20px;
+        height: 500px;
+        margin-top: 80px;
     }
 
     .user-box label {
@@ -392,6 +432,34 @@ header {
 
     .login-box button{
         margin-left: 100px;
+    }
+
+     .login-box .user-box label {
+        
+        font-size: x-large;
+        margin-left: 20px;
+    }
+
+    .top span{
+        font-size: 20px;
+    }
+
+    .top header{
+        font-size: 30px;
+        padding: 0;
+    }
+
+    .forgot-password a{
+        font-size: 20px;
+    }
+
+    .remember label{
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    .register-container{
+        height: 620px;
     }
 }
 

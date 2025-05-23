@@ -8,7 +8,7 @@
    {{ Breadcrumbs::render('nosotros') }}
    <!-- --------- -->
 
-   <h1 class="neon-text">NOSOTROS</h1>
+   <h1 class="neon-text" title="NOSOTROS">NOSOTROS</h1>
 
         <section class="mision">
             <p>

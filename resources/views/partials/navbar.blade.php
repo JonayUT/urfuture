@@ -9,7 +9,7 @@
 
 
     <!-- Modo Oscuro -->
-    <button id="dark-mode-toggle" class="dark-mode-btn">🌙</button>
+    <button id="dark-mode-toggle" class="dark-mode-btn" title="Modo Obscuro">🌙</button>
 
     <nav class="navbar">
         <div class="dropdown">

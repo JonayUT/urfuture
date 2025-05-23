@@ -7,7 +7,7 @@
    {{ Breadcrumbs::render('vision') }}
     <!-- --------- -->
 
-   <h1 class="neon-text">VISION</h1>
+   <h1 class="neon-text" title="VISION">VISION</h1>
    <main>
         <section class="contenido">
             <p>
