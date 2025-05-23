@@ -8,7 +8,7 @@
 {{ Breadcrumbs::render('contacto') }}
 <!-- --------- -->
 
-<h1 class="neon-text">CONTACTO</h1>
+<h1 class="neon-text" title="CONTACTO">CONTACTO</h1>
 
 <div class="contact-card">
     <form action="{{ route('contacto.enviar') }}" method="POST" class="contact-form">

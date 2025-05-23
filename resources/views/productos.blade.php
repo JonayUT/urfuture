@@ -7,37 +7,10 @@
 {{ Breadcrumbs::render('productos') }}
 <!-- --------- -->
 
-<h1>Nuestra Tienda</h1>
+<h1 title="Nuestra Tienda">Nuestra Tienda</h1>
 
 <div class="row-productos">
-    <!-- Filtros y búsqueda -->
-    <div class="filtros-busqueda">
-        <form action="{{ route('productos') }}" method="GET" class="form-filtros">
-            <div class="form-group">
-                <label for="categoria">Categoría</label>
-                <select name="categoria" id="categoria" class="form-control">
-                    <option value="">Todas</option>
-                    <option value="Libros" {{ request('categoria') == 'Libros' ? 'selected' : '' }}>Libros</option>
-                    <option value="Aromaticos" {{ request('categoria') == 'Aromaticos' ? 'selected' : '' }}>Aromaticos</option>
-                    <option value="Otros" {{ request('categoria') == 'Otros' ? 'selected' : '' }}>Otros</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="precio_min">Precio Mínimo</label>
-                <input type="number" name="precio_min" id="precio_min" class="form-control" value="{{ request('precio_min') }}" step="0.01">
-            </div>
-            <div class="form-group">
-                <label for="precio_max">Precio Máximo</label>
-                <input type="number" name="precio_max" id="precio_max" class="form-control" value="{{ request('precio_max') }}" step="0.01">
-            </div>
-            <div class="form-group">
-                <label for="buscar">Buscar</label>
-                <input type="text" name="buscar" id="buscar" class="form-control" value="{{ request('buscar') }}">
-            </div>
-            <button type="submit" class="btn-card">Filtrar</button>
-        </form>
-    </div>
-    <!-- Fin filtros y búsqueda -->
+    
 
     <div class="contenedor-productos">
         <div class="MostrarProductos">
@@ -92,10 +65,10 @@
                     <div class="card">
                         <img src="{{ $producto->Imagen }}" alt="{{ $producto->Nombre }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $producto->Nombre }}</h5>
-                            <p class="card-text">{{ $producto->Descripcion }}</p>
+                            <h5 class="card-title"  title="{{ $producto->Nombre }}">{{ $producto->Nombre }}</h5>
+                            <p class="card-text" title="{{ $producto->Descripcion }}">{{ $producto->Descripcion }}</p>
                             <p class="card-text"><strong>${{ number_format($producto->Precio, 2) }}</strong></p>
-                            <a href="{{ route('productos.show', $producto->_id) }}" class="btn-card">Ver más</a>
+                            <a href="{{ route('productos.show', $producto->_id) }}" class="btn-card" title="Ver mas">Ver más</a>
                             @auth
                                 @if(Auth::user()->hasRole('admin'))
                                 <form action="{{ route('productos.destroy', $producto->_id) }}" method="POST"
@@ -125,7 +98,7 @@
 
 <!-- Modal para editar producto -->
 <div id="modalEditar" class="modal">
-    <h3>Editar Producto</h3>
+    <h3 title="Editar Producto">Editar Producto</h3>
     <form id="formEditar" method="POST" class="form-editar">
         @csrf
         @method('PUT')
@@ -150,8 +123,8 @@
             <option value="Otros">Otros</option>
         </select>
         <br>
-        <button type="submit" class="btn-submit">Guardar cambios</button>
-        <button type="button" onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
+        <button type="submit" class="btn-submit" title="Guardar cambios">Guardar cambios</button>
+        <button type="button" onclick="cerrarModal()" class="btn-cancelar" title="Cancelar">Cancelar</button>
     </form>
 </div>
 

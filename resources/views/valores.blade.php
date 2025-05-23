@@ -10,7 +10,7 @@
         </ol>
     </div>
    <!-- --------- -->
-   <h1 class="neon-text">VALORES</h1>
+   <h1 class="neon-text" title="VALORES">VALORES</h1>
    <main>
         <section class="contenido">
             <p><strong>Autenticidad:</strong> Creemos en la magia genuina y en compartir productos 
