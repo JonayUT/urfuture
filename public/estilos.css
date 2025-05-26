@@ -946,9 +946,9 @@ h1 {
 
 }
 
-/*-------------------- IPAD MINI H  -----------------------*/
+/*-------------------- IPAD MINI V  -----------------------*/
 
-    @media (max-width: 1023px) and (min-width: 768px) {
+    @media (max-width: 1024px) and (min-width: 768px) {
     .form-agregar {
         max-width: 90%;
         padding: 15px;
@@ -964,10 +964,10 @@ h1 {
     }
 
     .contenedor-productos {
-        width: 680px;
+        width: 90vw;
     }
     .row {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .testimonios-container{
