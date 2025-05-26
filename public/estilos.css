@@ -971,7 +971,7 @@ h1 {
     }
 
     .testimonios-container{
-        width: 130%;
+        width: 100vw;
         margin-left: -80px;
     }
 }
